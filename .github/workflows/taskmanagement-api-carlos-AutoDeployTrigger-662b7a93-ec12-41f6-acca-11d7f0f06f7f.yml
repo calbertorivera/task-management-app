@@ -41,8 +41,8 @@ jobs:
               registryPassword: ${{ secrets.TASKMANAGEMENTAPICARLOS_REGISTRY_PASSWORD }}
               containerAppName: taskmanagement-api-carlos
               resourceGroup: rg-task-management
-              imageToBuild: kbt01989/task-management-api:${{ github.sha }}
-              imageToDeploy: kbt01989/task-management-api:${{ github.sha }}
+              imageToBuild: kbto1989/task-management-api:${{ github.sha }}
+              imageToDeploy: kbto1989/task-management-api:${{ github.sha }}
               targetPort: 8080
               ingress: external
 
