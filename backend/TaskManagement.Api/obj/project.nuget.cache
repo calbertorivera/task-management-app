@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "BRLuD173kmk=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api\\TaskManagement.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\CAlbe\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.15\\microsoft.aspnetcore.openapi.10.0.15.nupkg.sha512",
+    "C:\\Users\\CAlbe\\.nuget\\packages\\microsoft.openapi\\2.13.0\\microsoft.openapi.2.13.0.nupkg.sha512"
+  ],
+  "logs": []
+}
