@@ -29,3 +29,5 @@ ENV ASPNETCORE_HTTP_PORTS=8080
 COPY --from=build /app/publish .
 
 ENTRYPOINT ["dotnet", "TaskManagement.Api.dll"]
+
+# Force new deployment for diagnostics
