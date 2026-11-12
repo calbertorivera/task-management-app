@@ -34,7 +34,11 @@ var jwtAudience = builder.Configuration["Jwt:Audience"]
 
 builder.Services.AddDbContext<TaskManagementDbContext>(options =>
     options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection")));
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        sqlOptions => sqlOptions.EnableRetryOnFailure(
+            maxRetryCount: 5,
+            maxRetryDelay: TimeSpan.FromSeconds(15),
+            errorNumbersToAdd: null)));
 
 builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 
