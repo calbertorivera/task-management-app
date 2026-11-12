@@ -232,5 +232,5 @@ C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backe
 C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\bin\Debug\net10.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.resources.dll
 C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\bin\Debug\net10.0\runtimes\win\lib\net9.0\System.Windows.Extensions.dll
 C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
-C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\obj\Debug\net10.0\compressed\eu8j03a5kb-{0}-o9pat5krj8-o9pat5krj8.gz
 C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\bin\Debug\net10.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\obj\Debug\net10.0\compressed\eu8j03a5kb-{0}-5hs8g2zklm-5hs8g2zklm.gz

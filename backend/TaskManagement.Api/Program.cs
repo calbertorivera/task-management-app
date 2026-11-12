@@ -71,13 +71,13 @@ builder.Services.AddOpenApi();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+
+app.MapOpenApi();
+
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseHttpsRedirection();
 }
-
-app.UseHttpsRedirection();
-
 
 app.UseSwaggerUI(options =>
 {
@@ -85,7 +85,6 @@ app.UseSwaggerUI(options =>
         "/openapi/v1.json",
         "TaskManagement API v1");
 });
-
 
 app.UseAuthentication();
 app.UseAuthorization();
