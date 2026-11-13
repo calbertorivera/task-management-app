@@ -232,5 +232,5 @@ C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backe
 C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\obj\Debug\net10.0\TaskManagement.Api.pdb
 C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\obj\Debug\net10.0\TaskManagement.Api.genruntimeconfig.cache
 C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\obj\Debug\net10.0\ref\TaskManagement.Api.dll
-C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\obj\Debug\net10.0\compressed\eu8j03a5kb-{0}-mx58344jea-mx58344jea.gz
 C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\obj\Debug\net10.0\compressed\eu8j03a5kb-{0}-gfw6kits7o-gfw6kits7o.gz

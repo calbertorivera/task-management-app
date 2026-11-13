@@ -52,6 +52,32 @@
     ]
   },
   {
+    "ContainingType": "TaskManagement.Api.Controllers.HealthController",
+    "Method": "CheckDatabase",
+    "RelativePath": "api/health/database",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 503
+      },
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 504
+      }
+    ]
+  },
+  {
     "ContainingType": "TaskManagement.Api.Controllers.TasksController",
     "Method": "GetAll",
     "RelativePath": "api/Tasks",

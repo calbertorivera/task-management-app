@@ -48,10 +48,11 @@ builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
-
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 builder.Services.AddScoped<ITaskService, TaskService>();
+builder.Services.AddScoped<IDatabaseHealthRepository, DatabaseHealthRepository>();
+builder.Services.AddScoped<IDatabaseHealthService, DatabaseHealthService>();
 
 builder.Services.AddAuthentication(
     JwtBearerDefaults.AuthenticationScheme)
@@ -75,6 +76,21 @@ builder.Services.AddAuthentication(
     });
 
 builder.Services.AddAuthorization();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("Frontend", policy =>
+    {
+        policy
+            .WithOrigins(
+                "http://localhost:4200",
+                "https://localhost:4200",
+                "https://orange-water-0b690510f.3.azurestaticapps.net")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 builder.Services.AddControllers();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
@@ -101,6 +117,7 @@ using (var scope = app.Services.CreateScope())
         builder.Configuration);
 }
 app.UseForwardedHeaders();
+app.UseCors("Frontend");
 
 // Configure the HTTP request pipeline.
 

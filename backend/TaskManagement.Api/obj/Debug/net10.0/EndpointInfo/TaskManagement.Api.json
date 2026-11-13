@@ -121,6 +121,29 @@
         ]
       }
     },
+    "/api/health/database": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "503": {
+            "description": "Service Unavailable"
+          },
+          "504": {
+            "description": "Gateway Timeout"
+          }
+        },
+        "security": [
+          {
+            "Bearer": [ ]
+          }
+        ]
+      }
+    },
     "/api/Tasks": {
       "get": {
         "tags": [
@@ -743,6 +766,9 @@
   "tags": [
     {
       "name": "Auth"
+    },
+    {
+      "name": "Health"
     },
     {
       "name": "Tasks"
