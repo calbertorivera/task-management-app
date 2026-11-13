@@ -1,1 +1,74 @@
-<p>app-shell works!</p>
+<div class="shell">
+  <aside class="sidebar" [class.sidebar--open]="isMenuOpen()">
+    <a class="brand" routerLink="/dashboard" (click)="closeMenu()">
+      <span class="brand-mark">✓</span>
+
+      <span class="brand-copy">
+        <strong>Task</strong>
+        <small>Management</small>
+      </span>
+    </a>
+
+    <nav class="navigation" aria-label="Main navigation">
+      <a
+        class="nav-link"
+        routerLink="/dashboard"
+        routerLinkActive="nav-link--active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        (click)="closeMenu()"
+      >
+        <span class="nav-icon">⌂</span>
+        <span>Dashboard</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="user-summary">
+        <span class="user-avatar">{{ userInitial }}</span>
+
+        <span class="user-details">
+          <strong>Account</strong>
+          <small>{{ userEmail }}</small>
+        </span>
+      </div>
+
+      <button type="button" class="logout-button" (click)="logout()">
+        Sign out
+      </button>
+    </div>
+  </aside>
+
+  @if (isMenuOpen()) {
+    <button
+      type="button"
+      class="shell-backdrop"
+      aria-label="Close navigation"
+      (click)="closeMenu()"
+    ></button>
+  }
+
+  <section class="main-area">
+    <header class="topbar">
+      <button
+        type="button"
+        class="menu-button"
+        aria-label="Open navigation"
+        [attr.aria-expanded]="isMenuOpen()"
+        (click)="toggleMenu()"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div>
+        <p class="topbar-label">Workspace</p>
+        <h1>Overview</h1>
+      </div>
+    </header>
+
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+  </section>
+</div>

@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, inject, signal } from '@angular/core';
 import { finalize } from 'rxjs';
+import { Router } from '@angular/router';
 import { NotificationService } from '../../../core/notifications/notification';
 import {
   NonNullableFormBuilder,
@@ -19,6 +20,7 @@ import { AuthService } from '../../../core/auth/auth.service';
 export class LoginComponent {
   private readonly formBuilder = inject(NonNullableFormBuilder);
   private readonly authService = inject(AuthService);
+  private readonly router = inject(Router);
   private readonly notificationService = inject(
     NotificationService,
   );
@@ -53,6 +55,8 @@ readonly isSubmitting = signal(false);
             'Welcome back!',
             'Login successful',
           );
+
+          void this.router.navigateByUrl('/dashboard');
         },
         error: (error: HttpErrorResponse) => {
           const message =

@@ -1,0 +1,252 @@
+:host {
+  display: block;
+}
+
+.shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  background: var(--polar-white);
+  color: var(--ink);
+}
+
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 18px 20px;
+  color: var(--white);
+  background: linear-gradient(
+    170deg,
+    #20394d 0%,
+    #385970 58%,
+    #789db4 100%
+  );
+  z-index: 20;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: var(--racing-red);
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+
+  strong {
+    font-size: 17px;
+  }
+
+  small {
+    margin-top: 4px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+}
+
+.navigation {
+  display: grid;
+  gap: 8px;
+  margin-top: 52px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 14px;
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.76);
+  text-decoration: none;
+  font-size: 14px;
+  transition: 0.2s ease;
+
+  &:hover,
+  &--active {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.14);
+  }
+}
+
+.nav-icon {
+  width: 22px;
+  text-align: center;
+  font-size: 19px;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+}
+
+.user-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 4px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.user-avatar {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--racing-red);
+  font-weight: 700;
+}
+
+.user-details {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+
+  strong {
+    font-size: 13px;
+  }
+
+  small {
+    overflow: hidden;
+    color: rgba(255, 255, 255, 0.66);
+    font-size: 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.logout-button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 10px;
+  color: var(--white);
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.main-area {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: 88px;
+  padding: 20px 38px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.75);
+
+  h1 {
+    margin: 2px 0 0;
+    font-size: 24px;
+  }
+}
+
+.topbar-label {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.content {
+  width: min(1180px, 100%);
+  flex: 1;
+  margin: 0 auto;
+  padding: 34px 38px;
+}
+
+.menu-button,
+.shell-backdrop {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .shell {
+    display: block;
+  }
+
+  .sidebar {
+    position: fixed;
+    width: min(280px, 86vw);
+    transform: translateX(-105%);
+    transition: transform 0.22s ease;
+    box-shadow: 18px 0 40px rgba(20, 35, 48, 0.22);
+
+    &--open {
+      transform: translateX(0);
+    }
+  }
+
+  .shell-backdrop {
+    position: fixed;
+    inset: 0;
+    display: block;
+    border: 0;
+    background: rgba(20, 35, 48, 0.42);
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .topbar {
+    min-height: 76px;
+    padding: 16px 20px;
+  }
+
+  .topbar h1 {
+    font-size: 20px;
+  }
+
+  .menu-button {
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-content: center;
+    gap: 4px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--white);
+    cursor: pointer;
+
+    span {
+      width: 17px;
+      height: 2px;
+      display: block;
+      background: var(--ink);
+    }
+  }
+
+  .content {
+    padding: 24px 18px;
+  }
+}
