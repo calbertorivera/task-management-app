@@ -10,6 +10,12 @@ public class User
 
     public DateTime CreatedAt { get; private set; } = DateTime.UtcNow;
 
+    public bool IsEmailVerified { get; private set; }
+
+    public string? EmailVerificationCodeHash { get; private set; }
+
+    public DateTime? EmailVerificationCodeExpiresAtUtc { get; private set; }
+
     public ICollection<TaskItem> Tasks { get; private set; } = new List<TaskItem>();
 
     private User()
@@ -20,10 +26,27 @@ public class User
     {
         Email = email;
         PasswordHash = passwordHash;
+        IsEmailVerified = false;
     }
 
     public void SetPasswordHash(string passwordHash)
     {
         PasswordHash = passwordHash;
+    }
+
+    public void SetEmailVerificationCode(
+        string codeHash,
+        DateTime expiresAtUtc)
+    {
+        EmailVerificationCodeHash = codeHash;
+        EmailVerificationCodeExpiresAtUtc = expiresAtUtc;
+        IsEmailVerified = false;
+    }
+
+    public void MarkEmailAsVerified()
+    {
+        IsEmailVerified = true;
+        EmailVerificationCodeHash = null;
+        EmailVerificationCodeExpiresAtUtc = null;
     }
 }

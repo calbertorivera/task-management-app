@@ -14,6 +14,8 @@ public sealed class AuthServiceTests
     private readonly Mock<IPasswordHasher<User>> _passwordHasherMock = new();
     private readonly Mock<IJwtTokenService> _jwtTokenServiceMock = new();
 
+    private readonly Mock<IEmailSender> _emailSenderMock = new();
+
     private readonly AuthService _service;
 
     public AuthServiceTests()
@@ -21,7 +23,10 @@ public sealed class AuthServiceTests
         _service = new AuthService(
             _userRepositoryMock.Object,
             _passwordHasherMock.Object,
-            _jwtTokenServiceMock.Object);
+            _jwtTokenServiceMock.Object,
+            _emailSenderMock.Object);
+
+
     }
 
     [Fact]
@@ -43,9 +48,13 @@ public sealed class AuthServiceTests
                 request.Password))
             .Returns("hashed-password");
 
-        _jwtTokenServiceMock
-            .Setup(x => x.GenerateToken(It.IsAny<User>()))
-            .Returns("jwt-token");
+        _emailSenderMock
+    .Setup(x => x.SendVerificationCodeAsync(
+        "user@example.com",
+        It.IsAny<string>(),
+        It.IsAny<CancellationToken>()))
+    .Returns(Task.CompletedTask);
+
 
         _userRepositoryMock
             .Setup(x => x.AddAsync(
@@ -60,14 +69,24 @@ public sealed class AuthServiceTests
         var result = await _service.RegisterAsync(request);
 
         result.Email.Should().Be("user@example.com");
-        result.Token.Should().Be("jwt-token");
-        result.UserId.Should().NotBeEmpty();
+
+        result.Message.Should().Be(
+            "Registration successful. Check your email to verify your account.");
 
         _userRepositoryMock.Verify(x => x.AddAsync(
             It.Is<User>(user =>
                 user.Email == "user@example.com" &&
                 user.PasswordHash == "hashed-password"),
             It.IsAny<CancellationToken>()), Times.Once);
+
+        _emailSenderMock.Verify(
+    x => x.SendVerificationCodeAsync(
+        "user@example.com",
+        It.Is<string>(code =>
+            code.Length == 6 &&
+            code.All(char.IsDigit)),
+        It.IsAny<CancellationToken>()),
+    Times.Once);
 
         _userRepositoryMock.Verify(
             x => x.SaveChangesAsync(It.IsAny<CancellationToken>()),
@@ -139,6 +158,8 @@ public sealed class AuthServiceTests
         var user = new User(
             "user@example.com",
             "hashed-password");
+
+        user.MarkEmailAsVerified();
 
         _userRepositoryMock
             .Setup(x => x.GetByEmailAsync(

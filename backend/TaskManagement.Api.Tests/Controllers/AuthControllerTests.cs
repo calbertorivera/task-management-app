@@ -19,12 +19,11 @@ public sealed class AuthControllerTests
     }
 
     [Fact]
-    public async Task Register_WhenSuccessful_ShouldReturnCreated()
+    public async Task Register_WhenSuccessful_ShouldReturnAccepted()
     {
-        var response = new AuthResponse(
-            Guid.NewGuid(),
+        var response = new RegistrationResponse(
             "user@example.com",
-            "jwt-token");
+            "Registration successful. Check your email to verify your account.");
 
         _authServiceMock
             .Setup(x => x.RegisterAsync(
@@ -36,13 +35,18 @@ public sealed class AuthControllerTests
             new RegisterRequest("user@example.com", "Password123!"),
             CancellationToken.None);
 
-        var createdResult = result.Result
+        var acceptedResult = result.Result
             .Should()
-            .BeOfType<CreatedResult>()
+            .BeOfType<AcceptedResult>()
             .Subject;
 
-        createdResult.StatusCode.Should().Be(StatusCodes.Status201Created);
-        createdResult.Value.Should().BeEquivalentTo(response);
+        acceptedResult.StatusCode
+            .Should()
+            .Be(StatusCodes.Status202Accepted);
+
+        acceptedResult.Value
+            .Should()
+            .BeEquivalentTo(response);
     }
 
     [Fact]

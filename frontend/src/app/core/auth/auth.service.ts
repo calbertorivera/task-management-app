@@ -8,10 +8,33 @@ export interface LoginRequest {
   password: string;
 }
 
+export interface RegisterRequest {
+  email: string;
+  password: string;
+}
+
+export interface VerifyEmailRequest {
+  email: string;
+  code: string;
+}
+
+export interface ResendVerificationRequest {
+  email: string;
+}
+
 export interface AuthResponse {
   userId: string;
   email: string;
   token: string;
+}
+
+export interface RegistrationResponse {
+  email: string;
+  message: string;
+}
+
+export interface MessageResponse {
+  message: string;
 }
 
 @Injectable({
@@ -31,13 +54,42 @@ export class AuthService {
       )
       .pipe(
         tap((response) => {
-          sessionStorage.setItem(this.tokenKey, response.token);
-          sessionStorage.setItem(
-            this.userEmailKey,
-            response.email,
-          );
+          this.storeSession(response);
         }),
       );
+  }
+
+  register(
+    request: RegisterRequest,
+  ): Observable<RegistrationResponse> {
+    return this.http.post<RegistrationResponse>(
+      `${apiConfig.baseUrl}/api/auth/register`,
+      request,
+    );
+  }
+
+  verifyEmail(
+    request: VerifyEmailRequest,
+  ): Observable<AuthResponse> {
+    return this.http
+      .post<AuthResponse>(
+        `${apiConfig.baseUrl}/api/auth/verify-email`,
+        request,
+      )
+      .pipe(
+        tap((response) => {
+          this.storeSession(response);
+        }),
+      );
+  }
+
+  resendVerification(
+    request: ResendVerificationRequest,
+  ): Observable<MessageResponse> {
+    return this.http.post<MessageResponse>(
+      `${apiConfig.baseUrl}/api/auth/resend-verification`,
+      request,
+    );
   }
 
   getToken(): string | null {
@@ -59,5 +111,13 @@ export class AuthService {
 
   logout(): void {
     this.clearSession();
+  }
+
+  private storeSession(response: AuthResponse): void {
+    sessionStorage.setItem(this.tokenKey, response.token);
+    sessionStorage.setItem(
+      this.userEmailKey,
+      response.email,
+    );
   }
 }

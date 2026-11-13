@@ -57,6 +57,10 @@
                 <button class="primary-button" type="submit" [disabled]="isSubmitting()">
                     {{ isSubmitting() ? 'Signing in...' : 'Sign in' }}
                 </button>
+                <p class="auth-link">
+  Don't have an account?
+  <a routerLink="/register">Create one</a>
+</p>
             </form>
         </div>
     </section>

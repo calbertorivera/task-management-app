@@ -1,0 +1,91 @@
+<main class="login-page">
+  <section class="login-hero">
+    <div class="hero-content">
+      <div class="brand-mark">✓</div>
+
+      <p class="eyebrow">TASK MANAGEMENT</p>
+
+      <h1>One more step to get started.</h1>
+
+      <p class="hero-description">
+        Verify your email and start managing your work.
+      </p>
+
+      <div class="hero-line"></div>
+    </div>
+  </section>
+
+  <section class="login-section">
+    <div class="login-card">
+      <div class="card-header">
+        <p class="eyebrow">VERIFY EMAIL</p>
+
+        <h2>Check your inbox</h2>
+
+        <p>Enter the six-digit code we sent to your email.</p>
+      </div>
+
+      <form [formGroup]="verifyForm" (ngSubmit)="submit()">
+        <div class="field">
+          <label for="email">Email</label>
+
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+          />
+
+          @if (
+            verifyForm.controls.email.invalid &&
+            verifyForm.controls.email.touched
+          ) {
+            <small>Enter a valid email address.</small>
+          }
+        </div>
+
+        <div class="field">
+          <label for="code">Verification code</label>
+
+          <input
+            id="code"
+            type="text"
+            inputmode="numeric"
+            maxlength="6"
+            formControlName="code"
+            placeholder="123456"
+          />
+
+          @if (
+            verifyForm.controls.code.invalid &&
+            verifyForm.controls.code.touched
+          ) {
+            <small>Enter the six-digit verification code.</small>
+          }
+        </div>
+
+        <button
+          class="primary-button"
+          type="submit"
+          [disabled]="isSubmitting()"
+        >
+          {{ isSubmitting() ? 'Verifying...' : 'Verify email' }}
+        </button>
+
+        <button
+          class="secondary-button"
+          type="button"
+          [disabled]="isResending()"
+          (click)="resend()"
+        >
+          {{ isResending() ? 'Sending...' : 'Resend code' }}
+        </button>
+
+        <p class="auth-link">
+          <a routerLink="/login">Back to sign in</a>
+        </p>
+      </form>
+    </div>
+  </section>
+</main>

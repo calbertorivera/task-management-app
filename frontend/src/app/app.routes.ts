@@ -5,6 +5,8 @@ import { authGuard } from './core/auth/auth-guard';
 import { AppShell } from './shared/layout/app-shell/app-shell';
 import { TaskList } from './features/tasks/task-list/task-list';
 import { TaskForm } from './features/tasks/task-form/task-form';
+import { RegisterComponent } from './features/auth/register/register';
+import { VerifyEmailComponent } from './features/auth/verify-email/verify-email';
 
 
 export const routes: Routes = [
@@ -39,6 +41,14 @@ export const routes: Routes = [
                 pathMatch: 'full',
                 component: TaskList,
             },
+            {
+  path: 'register',
+  component: RegisterComponent,
+},
+{
+  path: 'verify-email',
+  component: VerifyEmailComponent,
+},
         ],
     },
     {

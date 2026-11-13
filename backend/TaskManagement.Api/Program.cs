@@ -1,19 +1,19 @@
-using Microsoft.EntityFrameworkCore;
-using TaskManagement.Infrastructure.Data;
-using TaskManagement.Application.Interfaces;
-using TaskManagement.Application.Services;
-using TaskManagement.Infrastructure.Repositories;
-using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using TaskManagement.Domain.Entities;
-using TaskManagement.Infrastructure.Security;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.OpenApi;
-using Microsoft.OpenApi;
 using TaskManagement.Api.OpenApi;
+using TaskManagement.Application.Interfaces;
+using TaskManagement.Application.Services;
+using TaskManagement.Domain.Entities;
+using TaskManagement.Infrastructure.Data;
+using TaskManagement.Infrastructure.Email;
+using TaskManagement.Infrastructure.Repositories;
+using TaskManagement.Infrastructure.Security;
+using Azure.Communication.Email;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -54,6 +54,7 @@ builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddScoped<IDatabaseHealthRepository, DatabaseHealthRepository>();
 builder.Services.AddScoped<IDatabaseHealthService, DatabaseHealthService>();
 
+
 builder.Services.AddAuthentication(
     JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
@@ -91,6 +92,28 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services
+    .AddOptions<EmailOptions>()
+    .Bind(builder.Configuration.GetSection(EmailOptions.SectionName))
+    .Validate(
+        options => !string.IsNullOrWhiteSpace(
+            options.ConnectionString),
+        "Azure Email connection string is not configured.")
+    .Validate(
+        options => !string.IsNullOrWhiteSpace(options.From),
+        "Email sender address is not configured.")
+    .ValidateOnStart();
+
+builder.Services.AddSingleton<EmailClient>(serviceProvider =>
+{
+    var options = serviceProvider
+        .GetRequiredService<IOptions<EmailOptions>>()
+        .Value;
+
+    return new EmailClient(options.ConnectionString);
+});
+
+builder.Services.AddScoped<IEmailSender, AzureEmailSender>();
 builder.Services.AddControllers();
 
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi

@@ -267,3 +267,16 @@ h1 {
     padding: 0.9rem;
   }
 }
+
+.auth-link {
+  margin: 1rem 0 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.auth-link a {
+  color: var(--racing-red);
+  font-weight: 700;
+  text-decoration: none;
+}

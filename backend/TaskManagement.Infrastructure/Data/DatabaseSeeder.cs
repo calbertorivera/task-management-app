@@ -41,8 +41,15 @@ public static class DatabaseSeeder
                 demoPassword);
 
             user.SetPasswordHash(passwordHash);
+            user.MarkEmailAsVerified();
 
             await context.Users.AddAsync(user, cancellationToken);
+            await context.SaveChangesAsync(cancellationToken);
+        }
+
+        if (!user.IsEmailVerified)
+        {
+            user.MarkEmailAsVerified();
             await context.SaveChangesAsync(cancellationToken);
         }
 

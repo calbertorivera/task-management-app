@@ -38,6 +38,13 @@ public class TaskManagementDbContext : DbContext
 
             entity.Property(user => user.CreatedAt)
                 .IsRequired();
+
+            entity.Property(user => user.IsEmailVerified).IsRequired();
+
+            entity.Property(user => user.EmailVerificationCodeHash)
+                .HasMaxLength(128);
+
+            entity.Property(user => user.EmailVerificationCodeExpiresAtUtc);
         });
 
         modelBuilder.Entity<TaskItem>(entity =>
