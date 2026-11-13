@@ -1,0 +1,34 @@
+@if (notification(); as item) {
+  <aside
+    class="toast"
+    [class.toast-success]="item.type === 'success'"
+    [class.toast-error]="item.type === 'error'"
+    [class.toast-info]="item.type === 'info'"
+    role="alert"
+    aria-live="assertive"
+  >
+    <span class="toast-icon" aria-hidden="true">
+      @if (item.type === 'success') {
+        ✓
+      } @else if (item.type === 'error') {
+        !
+      } @else {
+        i
+      }
+    </span>
+
+    <div class="toast-content">
+      <strong>{{ item.title }}</strong>
+      <p>{{ item.message }}</p>
+    </div>
+
+    <button
+      type="button"
+      class="toast-close"
+      aria-label="Close notification"
+      (click)="close()"
+    >
+      ×
+    </button>
+  </aside>
+}

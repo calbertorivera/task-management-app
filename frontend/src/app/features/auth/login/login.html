@@ -1,89 +1,63 @@
 <main class="login-page">
-  <section class="login-hero">
-    <div class="hero-content">
-      <div class="brand-mark">✓</div>
+    <section class="login-hero">
+        <div class="hero-content">
+            <div class="brand-mark">✓</div>
 
-      <p class="eyebrow">TASK MANAGEMENT</p>
+            <p class="eyebrow">TASK MANAGEMENT</p>
 
-      <h1>Organize your work. Keep moving forward.</h1>
+            <h1>Organize your work. Keep moving forward.</h1>
 
-      <p class="hero-description">
-        A simple and focused space to manage your tasks and stay on track.
-      </p>
+            <p class="hero-description">
+                A simple and focused space to manage your tasks and stay on track.
+            </p>
 
-      <div class="hero-line"></div>
-    </div>
-  </section>
-
-  <section class="login-section">
-    <div class="login-card">
-      <div class="card-header">
-        <p class="eyebrow">WELCOME BACK</p>
-
-        <h2>Sign in to your account</h2>
-
-        <p>Enter your credentials to continue.</p>
-      </div>
-
-      @if (errorMessage) {
-        <div class="message message-error">
-          {{ errorMessage }}
+            <div class="hero-line"></div>
         </div>
-      }
+    </section>
 
-      @if (successMessage) {
-        <div class="message message-success">
-          {{ successMessage }}
+    <section class="login-section">
+        <div class="login-card">
+            <div class="card-header">
+                <p class="eyebrow">WELCOME BACK</p>
+
+                <h2>Sign in to your account</h2>
+
+                <p>Enter your credentials to continue.</p>
+            </div>
+
+            <form [formGroup]="loginForm" (ngSubmit)="submit()">
+                <div class="field">
+                    <label for="email">Email</label>
+
+                    <input id="email" type="email" formControlName="email" autocomplete="username"
+                        placeholder="you@example.com" />
+
+                    @if (
+                    loginForm.controls.email.invalid &&
+                    loginForm.controls.email.touched
+                    ) {
+                    <small>Enter a valid email address.</small>
+                    }
+                </div>
+
+                <div class="field">
+                    <label for="password">Password</label>
+
+                    <input id="password" type="password" formControlName="password" autocomplete="current-password"
+                        placeholder="Your password" />
+
+                    @if (
+                    loginForm.controls.password.invalid &&
+                    loginForm.controls.password.touched
+                    ) {
+                    <small>Password must contain at least 8 characters.</small>
+                    }
+                </div>
+
+                <button class="primary-button" type="submit" [disabled]="isSubmitting()">
+                    {{ isSubmitting() ? 'Signing in...' : 'Sign in' }}
+                </button>
+            </form>
         </div>
-      }
-
-      <form [formGroup]="loginForm" (ngSubmit)="submit()">
-        <div class="field">
-          <label for="email">Email</label>
-
-          <input
-            id="email"
-            type="email"
-            formControlName="email"
-            autocomplete="username"
-            placeholder="you@example.com"
-          />
-
-          @if (
-            loginForm.controls.email.invalid &&
-            loginForm.controls.email.touched
-          ) {
-            <small>Enter a valid email address.</small>
-          }
-        </div>
-
-        <div class="field">
-          <label for="password">Password</label>
-
-          <input
-            id="password"
-            type="password"
-            formControlName="password"
-            autocomplete="current-password"
-            placeholder="Your password"
-          />
-
-          @if (
-            loginForm.controls.password.invalid &&
-            loginForm.controls.password.touched
-          ) {
-            <small>Password must contain at least 8 characters.</small>
-          }
-        </div>
-
-        <button
-          class="primary-button"
-          type="submit"
-          [disabled]="isSubmitting"
-        >
-          {{ isSubmitting ? 'Signing in...' : 'Sign in' }}
-        </button>
-      </form>
-    </div>
-  </section>
+    </section>
 </main>

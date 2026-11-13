@@ -19,23 +19,45 @@ export interface AuthResponse {
 })
 export class AuthService {
   private readonly http = inject(HttpClient);
+
   private readonly tokenKey = 'task-management-token';
+  private readonly userEmailKey = 'task-management-user-email';
 
   login(request: LoginRequest): Observable<AuthResponse> {
     return this.http
-      .post<AuthResponse>(`${apiConfig.baseUrl}/api/auth/login`, request)
+      .post<AuthResponse>(
+        `${apiConfig.baseUrl}/api/auth/login`,
+        request,
+      )
       .pipe(
         tap((response) => {
-          localStorage.setItem(this.tokenKey, response.token);
+          sessionStorage.setItem(this.tokenKey, response.token);
+          sessionStorage.setItem(
+            this.userEmailKey,
+            response.email,
+          );
         }),
       );
   }
 
+  getToken(): string | null {
+    return sessionStorage.getItem(this.tokenKey);
+  }
+
+  getUserEmail(): string | null {
+    return sessionStorage.getItem(this.userEmailKey);
+  }
+
   isAuthenticated(): boolean {
-    return Boolean(localStorage.getItem(this.tokenKey));
+    return Boolean(this.getToken());
+  }
+
+  clearSession(): void {
+    sessionStorage.removeItem(this.tokenKey);
+    sessionStorage.removeItem(this.userEmailKey);
   }
 
   logout(): void {
-    localStorage.removeItem(this.tokenKey);
+    this.clearSession();
   }
 }

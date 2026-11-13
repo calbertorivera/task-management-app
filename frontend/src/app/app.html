@@ -1,1 +1,44 @@
-<router-outlet />
+<app-toast />
+@if (isPreparingDatabase()) {
+  <main class="database-state" role="status" aria-live="polite">
+    <section class="database-card">
+      <div class="spinner"></div>
+
+      <p class="eyebrow">PREPARING DEMO</p>
+
+      <h1>Preparing the database for you</h1>
+
+      <p>
+        Because this is a demo, the database may take a little longer to wake
+        up the first time.
+      </p>
+
+      <span>Please wait a moment.</span>
+    </section>
+  </main>
+} @else if (databaseError()) {
+  <main class="database-state">
+    <section class="database-card">
+      <div class="error-icon">!</div>
+
+      <p class="eyebrow">DATABASE UNAVAILABLE</p>
+
+      <h1>We could not prepare the database</h1>
+
+      <p>
+        Please try again. The database may still be waking up.
+      </p>
+
+      <button
+  type="button"
+  class="retry-button"
+  [disabled]="isRetrying()"
+  (click)="retryDatabase()"
+>
+  {{ isRetrying() ? 'Trying again...' : 'Try again' }}
+</button>
+    </section>
+  </main>
+} @else {
+  <router-outlet />
+}
