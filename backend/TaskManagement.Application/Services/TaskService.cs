@@ -42,13 +42,10 @@ public sealed class TaskService : ITaskService
         Guid userId,
         CancellationToken cancellationToken = default)
     {
-        if (string.IsNullOrWhiteSpace(request.Title))
-        {
-            throw new ArgumentException("The title is required.");
-        }
+        var title = NormalizeTitle(request.Title);
 
         var task = new TaskItem(
-            request.Title.Trim(),
+            title,
             request.Description?.Trim() ?? string.Empty,
             request.DueDate,
             userId);
@@ -75,13 +72,10 @@ public sealed class TaskService : ITaskService
             return null;
         }
 
-        if (string.IsNullOrWhiteSpace(request.Title))
-        {
-            throw new ArgumentException("The title is required.");
-        }
+        var title = NormalizeTitle(request.Title);
 
         task.Update(
-            request.Title.Trim(),
+            title,
             request.Description?.Trim() ?? string.Empty,
             request.Status,
             request.DueDate);
@@ -112,7 +106,17 @@ public sealed class TaskService : ITaskService
 
         return true;
     }
+    private static string NormalizeTitle(string title)
+    {
+        if (string.IsNullOrWhiteSpace(title))
+        {
+            throw new ArgumentException(
+                "The title is required.",
+                nameof(title));
+        }
 
+        return title.Trim();
+    }
     private static TaskResponse MapToResponse(TaskItem task)
     {
         return new TaskResponse(

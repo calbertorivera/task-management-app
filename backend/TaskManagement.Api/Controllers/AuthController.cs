@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using TaskManagement.Application.Contracts.Auth;
 using TaskManagement.Application.Interfaces;
 
@@ -15,6 +16,7 @@ public sealed class AuthController : ControllerBase
         _authService = authService;
     }
 
+    [AllowAnonymous]
     [HttpPost("register")]
     public async Task<ActionResult<AuthResponse>> Register(
         RegisterRequest request,
@@ -38,6 +40,7 @@ public sealed class AuthController : ControllerBase
         }
     }
 
+    [AllowAnonymous]
     [HttpPost("login")]
     public async Task<ActionResult<AuthResponse>> Login(
         LoginRequest request,

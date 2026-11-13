@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Kw0kE7s86RM=",
+  "dgSpecHash": "WFHTBBGe25c=",
   "success": true,
   "projectFilePath": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -32,7 +32,9 @@
     "C:\\Users\\CAlbe\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\10.0.0\\microsoft.entityframeworkcore.tools.10.0.0.nupkg.sha512",
     "C:\\Users\\CAlbe\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\10.0.0\\microsoft.extensions.caching.abstractions.10.0.0.nupkg.sha512",
     "C:\\Users\\CAlbe\\.nuget\\packages\\microsoft.extensions.caching.memory\\10.0.0\\microsoft.extensions.caching.memory.10.0.0.nupkg.sha512",
+    "C:\\Users\\CAlbe\\.nuget\\packages\\microsoft.extensions.configuration\\10.0.0\\microsoft.extensions.configuration.10.0.0.nupkg.sha512",
     "C:\\Users\\CAlbe\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\10.0.0\\microsoft.extensions.configuration.abstractions.10.0.0.nupkg.sha512",
+    "C:\\Users\\CAlbe\\.nuget\\packages\\microsoft.extensions.configuration.binder\\10.0.0\\microsoft.extensions.configuration.binder.10.0.0.nupkg.sha512",
     "C:\\Users\\CAlbe\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\10.0.0\\microsoft.extensions.dependencyinjection.10.0.0.nupkg.sha512",
     "C:\\Users\\CAlbe\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\10.0.0\\microsoft.extensions.dependencyinjection.abstractions.10.0.0.nupkg.sha512",
     "C:\\Users\\CAlbe\\.nuget\\packages\\microsoft.extensions.dependencymodel\\10.0.0\\microsoft.extensions.dependencymodel.10.0.0.nupkg.sha512",

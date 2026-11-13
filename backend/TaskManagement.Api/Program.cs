@@ -10,6 +10,10 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using TaskManagement.Domain.Entities;
 using TaskManagement.Infrastructure.Security;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.OpenApi;
+using Microsoft.OpenApi;
+using TaskManagement.Api.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -71,18 +75,31 @@ builder.Services.AddAuthentication(
     });
 
 builder.Services.AddAuthorization();
-
-
-// Add services to the container.
-builder.Services.AddScoped<IUserRepository, UserRepository>();
-builder.Services.AddScoped<ITaskRepository, TaskRepository>();
-builder.Services.AddScoped<ITaskService, TaskService>();
-
 builder.Services.AddControllers();
+
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services.AddOpenApi(options =>
+{
+    options.AddDocumentTransformer<BearerSecuritySchemeTransformer>();
+});
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider
+        .GetRequiredService<TaskManagementDbContext>();
+
+    var passwordHasher = scope.ServiceProvider
+        .GetRequiredService<IPasswordHasher<User>>();
+
+    await dbContext.Database.MigrateAsync();
+
+    await DatabaseSeeder.SeedAsync(
+        dbContext,
+        passwordHasher,
+        builder.Configuration);
+}
 app.UseForwardedHeaders();
 
 // Configure the HTTP request pipeline.

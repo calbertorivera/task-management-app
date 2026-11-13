@@ -3,24 +3,71 @@
   "WorkspaceRootPath": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\CAlbe\\AppData\\Roaming\\Microsoft\\UserSecrets\\cfcdbe39-f907-4e07-8aef-6c79218b9334\\secrets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B0405E0-47B4-8CC4-6310-BD0C14486A41}|TaskManagement.Api\\TaskManagement.Api.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5B0405E0-47B4-8CC4-6310-BD0C14486A41}|TaskManagement.Api\\TaskManagement.Api.csproj|solutionrelative:taskmanagement.api\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BD0055B-4AAD-E775-F478-625EC62D13B8}|TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.infrastructure\\data\\databaseseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BD0055B-4AAD-E775-F478-625EC62D13B8}|TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj|solutionrelative:taskmanagement.infrastructure\\data\\databaseseeder.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5B0405E0-47B4-8CC4-6310-BD0C14486A41}|TaskManagement.Api\\TaskManagement.Api.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B0405E0-47B4-8CC4-6310-BD0C14486A41}|TaskManagement.Api\\TaskManagement.Api.csproj|solutionrelative:taskmanagement.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2857DDF1-C783-E658-E035-3AE0E8575715}|TaskManagement.Application\\TaskManagement.Application.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2857DDF1-C783-E658-E035-3AE0E8575715}|TaskManagement.Application\\TaskManagement.Application.csproj|solutionrelative:taskmanagement.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{BE9C9FED-7292-F6A3-ECC5-54A0F9D24113}|TaskManagement.Infrastructure.Tests\\TaskManagement.Infrastructure.Tests.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.infrastructure.tests\\repositories\\userrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9C9FED-7292-F6A3-ECC5-54A0F9D24113}|TaskManagement.Infrastructure.Tests\\TaskManagement.Infrastructure.Tests.csproj|solutionrelative:taskmanagement.infrastructure.tests\\repositories\\userrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BE9C9FED-7292-F6A3-ECC5-54A0F9D24113}|TaskManagement.Infrastructure.Tests\\TaskManagement.Infrastructure.Tests.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.infrastructure.tests\\repositories\\taskrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BE9C9FED-7292-F6A3-ECC5-54A0F9D24113}|TaskManagement.Infrastructure.Tests\\TaskManagement.Infrastructure.Tests.csproj|solutionrelative:taskmanagement.infrastructure.tests\\repositories\\taskrepositorytests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00A79042-F585-0E55-F476-BEA1AC7B16BF}|TaskManagement.Api.Tests\\TaskManagement.Api.Tests.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.api.tests\\controllers\\taskscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00A79042-F585-0E55-F476-BEA1AC7B16BF}|TaskManagement.Api.Tests\\TaskManagement.Api.Tests.csproj|solutionrelative:taskmanagement.api.tests\\controllers\\taskscontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{00A79042-F585-0E55-F476-BEA1AC7B16BF}|TaskManagement.Api.Tests\\TaskManagement.Api.Tests.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.api.tests\\controllers\\authcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{00A79042-F585-0E55-F476-BEA1AC7B16BF}|TaskManagement.Api.Tests\\TaskManagement.Api.Tests.csproj|solutionrelative:taskmanagement.api.tests\\controllers\\authcontrollertests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B7432A6-DD11-1630-DF2C-7DE8A053161C}|TaskManagement.Application.Tests\\TaskManagement.Application.Tests.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.application.tests\\services\\authservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B7432A6-DD11-1630-DF2C-7DE8A053161C}|TaskManagement.Application.Tests\\TaskManagement.Application.Tests.csproj|solutionrelative:taskmanagement.application.tests\\services\\authservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7B7432A6-DD11-1630-DF2C-7DE8A053161C}|TaskManagement.Application.Tests\\TaskManagement.Application.Tests.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.application.tests\\services\\taskservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7B7432A6-DD11-1630-DF2C-7DE8A053161C}|TaskManagement.Application.Tests\\TaskManagement.Application.Tests.csproj|solutionrelative:taskmanagement.application.tests\\services\\taskservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B0405E0-47B4-8CC4-6310-BD0C14486A41}|TaskManagement.Api\\TaskManagement.Api.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.api\\openapi\\bearersecurityschemetransformer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B0405E0-47B4-8CC4-6310-BD0C14486A41}|TaskManagement.Api\\TaskManagement.Api.csproj|solutionrelative:taskmanagement.api\\openapi\\bearersecurityschemetransformer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5B0405E0-47B4-8CC4-6310-BD0C14486A41}|TaskManagement.Api\\TaskManagement.Api.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5B0405E0-47B4-8CC4-6310-BD0C14486A41}|TaskManagement.Api\\TaskManagement.Api.csproj|solutionrelative:taskmanagement.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7BD0055B-4AAD-E775-F478-625EC62D13B8}|TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.infrastructure\\security\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7BD0055B-4AAD-E775-F478-625EC62D13B8}|TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj|solutionrelative:taskmanagement.infrastructure\\security\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2857DDF1-C783-E658-E035-3AE0E8575715}|TaskManagement.Application\\TaskManagement.Application.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2857DDF1-C783-E658-E035-3AE0E8575715}|TaskManagement.Application\\TaskManagement.Application.csproj|solutionrelative:taskmanagement.application\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5B0405E0-47B4-8CC4-6310-BD0C14486A41}|TaskManagement.Api\\TaskManagement.Api.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.api\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5B0405E0-47B4-8CC4-6310-BD0C14486A41}|TaskManagement.Api\\TaskManagement.Api.csproj|solutionrelative:taskmanagement.api\\controllers\\taskscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2857DDF1-C783-E658-E035-3AE0E8575715}|TaskManagement.Application\\TaskManagement.Application.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.application\\interfaces\\itaskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2857DDF1-C783-E658-E035-3AE0E8575715}|TaskManagement.Application\\TaskManagement.Application.csproj|solutionrelative:taskmanagement.application\\interfaces\\itaskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2857DDF1-C783-E658-E035-3AE0E8575715}|TaskManagement.Application\\TaskManagement.Application.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.application\\services\\taskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2857DDF1-C783-E658-E035-3AE0E8575715}|TaskManagement.Application\\TaskManagement.Application.csproj|solutionrelative:taskmanagement.application\\services\\taskservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7BD0055B-4AAD-E775-F478-625EC62D13B8}|TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.infrastructure\\security\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7BD0055B-4AAD-E775-F478-625EC62D13B8}|TaskManagement.Infrastructure\\TaskManagement.Infrastructure.csproj|solutionrelative:taskmanagement.infrastructure\\security\\jwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2857DDF1-C783-E658-E035-3AE0E8575715}|TaskManagement.Application\\TaskManagement.Application.csproj|c:\\users\\calbe\\onedrive\\documentos\\task-management-app\\task-management-app\\backend\\taskmanagement.application\\interfaces\\ijwttokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -94,24 +141,179 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "secrets.json",
+              "DocumentMoniker": "C:\\Users\\CAlbe\\AppData\\Roaming\\Microsoft\\UserSecrets\\cfcdbe39-f907-4e07-8aef-6c79218b9334\\secrets.json",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\cfcdbe39-f907-4e07-8aef-6c79218b9334\\secrets.json",
+              "ToolTip": "C:\\Users\\CAlbe\\AppData\\Roaming\\Microsoft\\UserSecrets\\cfcdbe39-f907-4e07-8aef-6c79218b9334\\secrets.json",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\cfcdbe39-f907-4e07-8aef-6c79218b9334\\secrets.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-11-13T01:00:10.635Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%3"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "TaskManagement.Api\\appsettings.Development.json",
+              "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api\\appsettings.Development.json",
+              "RelativeToolTip": "TaskManagement.Api\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-11-13T00:50:24.821Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "TaskManagement.Api\\Controllers\\AuthController.cs",
-              "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "TaskManagement.Api\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAACMAAAAAAAAAAAAwwD4AAAABAAAAAAAAAA==",
+              "Title": "DatabaseSeeder.cs",
+              "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Infrastructure\\Data\\DatabaseSeeder.cs",
+              "RelativeDocumentMoniker": "TaskManagement.Infrastructure\\Data\\DatabaseSeeder.cs",
+              "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Infrastructure\\Data\\DatabaseSeeder.cs",
+              "RelativeToolTip": "TaskManagement.Infrastructure\\Data\\DatabaseSeeder.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAgwAMAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T04:33:50.527Z",
+              "WhenOpened": "2026-11-13T00:49:19.901Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserRepositoryTests.cs",
+              "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Infrastructure.Tests\\Repositories\\UserRepositoryTests.cs",
+              "RelativeDocumentMoniker": "TaskManagement.Infrastructure.Tests\\Repositories\\UserRepositoryTests.cs",
+              "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Infrastructure.Tests\\Repositories\\UserRepositoryTests.cs",
+              "RelativeToolTip": "TaskManagement.Infrastructure.Tests\\Repositories\\UserRepositoryTests.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAYwDQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-13T00:42:31.395Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TaskRepositoryTests.cs",
+              "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Infrastructure.Tests\\Repositories\\TaskRepositoryTests.cs",
+              "RelativeDocumentMoniker": "TaskManagement.Infrastructure.Tests\\Repositories\\TaskRepositoryTests.cs",
+              "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Infrastructure.Tests\\Repositories\\TaskRepositoryTests.cs",
+              "RelativeToolTip": "TaskManagement.Infrastructure.Tests\\Repositories\\TaskRepositoryTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-13T00:42:09.11Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TasksControllerTests.cs",
+              "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api.Tests\\Controllers\\TasksControllerTests.cs",
+              "RelativeDocumentMoniker": "TaskManagement.Api.Tests\\Controllers\\TasksControllerTests.cs",
+              "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api.Tests\\Controllers\\TasksControllerTests.cs",
+              "RelativeToolTip": "TaskManagement.Api.Tests\\Controllers\\TasksControllerTests.cs",
+              "ViewState": "AgIAABIBAAAAAAAAAAAYwFsBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-13T00:38:06.146Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AuthControllerTests.cs",
+              "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api.Tests\\Controllers\\AuthControllerTests.cs",
+              "RelativeDocumentMoniker": "TaskManagement.Api.Tests\\Controllers\\AuthControllerTests.cs",
+              "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api.Tests\\Controllers\\AuthControllerTests.cs",
+              "RelativeToolTip": "TaskManagement.Api.Tests\\Controllers\\AuthControllerTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJwAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-13T00:37:01.111Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AuthServiceTests.cs",
+              "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application.Tests\\Services\\AuthServiceTests.cs",
+              "RelativeDocumentMoniker": "TaskManagement.Application.Tests\\Services\\AuthServiceTests.cs",
+              "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application.Tests\\Services\\AuthServiceTests.cs",
+              "RelativeToolTip": "TaskManagement.Application.Tests\\Services\\AuthServiceTests.cs",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAYwJcAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-13T00:35:24.91Z",
+              "EditorCaption": "",
               "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api\\Program.cs",
+              "RelativeDocumentMoniker": "TaskManagement.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api\\Program.cs",
+              "RelativeToolTip": "TaskManagement.Api\\Program.cs",
+              "ViewState": "AgIAAE8AAAAAAAAAAAAswGEAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-12T03:45:28.555Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "TaskServiceTests.cs",
+              "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application.Tests\\Services\\TaskServiceTests.cs",
+              "RelativeDocumentMoniker": "TaskManagement.Application.Tests\\Services\\TaskServiceTests.cs",
+              "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application.Tests\\Services\\TaskServiceTests.cs",
+              "RelativeToolTip": "TaskManagement.Application.Tests\\Services\\TaskServiceTests.cs",
+              "ViewState": "AgIAAEYAAAAAAAAAAAD4v4sAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-13T00:15:46.101Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ITaskService.cs",
+              "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application\\Interfaces\\ITaskService.cs",
+              "RelativeDocumentMoniker": "TaskManagement.Application\\Interfaces\\ITaskService.cs",
+              "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application\\Interfaces\\ITaskService.cs",
+              "RelativeToolTip": "TaskManagement.Application\\Interfaces\\ITaskService.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAywB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-12T23:37:41.486Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "TaskManagement.Api\\Controllers\\AuthController.cs",
+              "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "TaskManagement.Api\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAwwBIAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-12T04:33:50.527Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "JwtTokenService.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Infrastructure\\Security\\JwtTokenService.cs",
               "RelativeDocumentMoniker": "TaskManagement.Infrastructure\\Security\\JwtTokenService.cs",
@@ -124,20 +326,21 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "AuthService.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "TaskManagement.Application\\Services\\AuthService.cs",
               "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application\\Services\\AuthService.cs",
               "RelativeToolTip": "TaskManagement.Application\\Services\\AuthService.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAWwCkAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAWwEoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-12T04:28:36.591Z",
+              "EditorCaption": "",
               "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 17,
               "Title": "IJwtTokenService.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application\\Interfaces\\IJwtTokenService.cs",
               "RelativeDocumentMoniker": "TaskManagement.Application\\Interfaces\\IJwtTokenService.cs",
@@ -150,20 +353,35 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 15,
               "Title": "TaskService.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application\\Services\\TaskService.cs",
               "RelativeDocumentMoniker": "TaskManagement.Application\\Services\\TaskService.cs",
               "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application\\Services\\TaskService.cs",
               "RelativeToolTip": "TaskManagement.Application\\Services\\TaskService.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAQwH0AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAF8AAAAAAAAAAAAAAHYAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-11-12T04:23:38.213Z",
+              "EditorCaption": "",
               "OwnerCaption": "%2"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
+              "Title": "BearerSecuritySchemeTransformer.cs",
+              "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api\\OpenAPI\\BearerSecuritySchemeTransformer.cs",
+              "RelativeDocumentMoniker": "TaskManagement.Api\\OpenAPI\\BearerSecuritySchemeTransformer.cs",
+              "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api\\OpenAPI\\BearerSecuritySchemeTransformer.cs",
+              "RelativeToolTip": "TaskManagement.Api\\OpenAPI\\BearerSecuritySchemeTransformer.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAgwDMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-12T23:50:25.245Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "TaskRepository.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Infrastructure\\Repositories\\TaskRepository.cs",
               "RelativeDocumentMoniker": "TaskManagement.Infrastructure\\Repositories\\TaskRepository.cs",
@@ -176,7 +394,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 19,
               "Title": "UserRepository.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Infrastructure\\Repositories\\UserRepository.cs",
               "RelativeDocumentMoniker": "TaskManagement.Infrastructure\\Repositories\\UserRepository.cs",
@@ -189,7 +407,21 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 13,
+              "Title": "TasksController.cs",
+              "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api\\Controllers\\TasksController.cs",
+              "RelativeDocumentMoniker": "TaskManagement.Api\\Controllers\\TasksController.cs",
+              "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api\\Controllers\\TasksController.cs",
+              "RelativeToolTip": "TaskManagement.Api\\Controllers\\TasksController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-12T23:40:09.266Z",
+              "EditorCaption": "",
+              "OwnerCaption": "%2"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
               "Title": "IAuthService.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application\\Interfaces\\IAuthService.cs",
               "RelativeDocumentMoniker": "TaskManagement.Application\\Interfaces\\IAuthService.cs",
@@ -202,21 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api\\Program.cs",
-              "RelativeDocumentMoniker": "TaskManagement.Api\\Program.cs",
-              "ToolTip": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api\\Program.cs",
-              "RelativeToolTip": "TaskManagement.Api\\Program.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAQwCgAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-12T03:45:28.555Z",
-              "EditorCaption": "",
-              "OwnerCaption": "%2"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 21,
               "Title": "ITaskRepository.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application\\Interfaces\\ITaskRepository.cs",
               "RelativeDocumentMoniker": "TaskManagement.Application\\Interfaces\\ITaskRepository.cs",
@@ -229,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 22,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application\\Interfaces\\IUserRepository.cs",
               "RelativeDocumentMoniker": "TaskManagement.Application\\Interfaces\\IUserRepository.cs",
@@ -242,7 +460,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 23,
               "Title": "TaskResponse.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application\\Contracts\\Tasks\\TaskResponse.cs",
               "RelativeDocumentMoniker": "TaskManagement.Application\\Contracts\\Tasks\\TaskResponse.cs",
@@ -255,7 +473,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 24,
               "Title": "UpdateTaskRequest.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application\\Contracts\\Tasks\\UpdateTaskRequest.cs",
               "RelativeDocumentMoniker": "TaskManagement.Application\\Contracts\\Tasks\\UpdateTaskRequest.cs",
@@ -268,7 +486,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 25,
               "Title": "CreateTaskRequest.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application\\Contracts\\Tasks\\CreateTaskRequest.cs",
               "RelativeDocumentMoniker": "TaskManagement.Application\\Contracts\\Tasks\\CreateTaskRequest.cs",
@@ -281,7 +499,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 26,
               "Title": "AuthResponse.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application\\Contracts\\Auth\\AuthResponse.cs",
               "RelativeDocumentMoniker": "TaskManagement.Application\\Contracts\\Auth\\AuthResponse.cs",
@@ -294,7 +512,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 27,
               "Title": "LoginRequest.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application\\Contracts\\Auth\\LoginRequest.cs",
               "RelativeDocumentMoniker": "TaskManagement.Application\\Contracts\\Auth\\LoginRequest.cs",
@@ -307,7 +525,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 28,
               "Title": "RegisterRequest.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Application\\Contracts\\Auth\\RegisterRequest.cs",
               "RelativeDocumentMoniker": "TaskManagement.Application\\Contracts\\Auth\\RegisterRequest.cs",
@@ -320,7 +538,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 29,
               "Title": "TaskManagementDbContext.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Infrastructure\\Data\\TaskManagementDbContext.cs",
               "RelativeDocumentMoniker": "TaskManagement.Infrastructure\\Data\\TaskManagementDbContext.cs",
@@ -333,7 +551,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 30,
               "Title": "TaskItem.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Domain\\Entities\\TaskItem.cs",
               "RelativeDocumentMoniker": "TaskManagement.Domain\\Entities\\TaskItem.cs",
@@ -346,7 +564,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 31,
               "Title": "TaskItemStatus.cs",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Domain\\Entities\\TaskItemStatus.cs",
               "RelativeDocumentMoniker": "TaskManagement.Domain\\Entities\\TaskItemStatus.cs",
@@ -359,7 +577,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 32,
               "Title": "TaskManagement.Api.http",
               "DocumentMoniker": "C:\\Users\\CAlbe\\OneDrive\\Documentos\\task-management-app\\task-management-app\\backend\\TaskManagement.Api\\TaskManagement.Api.http",
               "RelativeDocumentMoniker": "TaskManagement.Api\\TaskManagement.Api.http",
