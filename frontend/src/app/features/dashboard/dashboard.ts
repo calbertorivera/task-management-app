@@ -24,9 +24,30 @@ export class Dashboard {
   private readonly taskService = inject(TaskService);
   private readonly notificationService = inject(NotificationService);
 
-  readonly tasks = signal<ReadonlyArray<Task>>([]);
+  readonly tasks = signal<ReadonlyArray<Task>>([]);  
   readonly isLoading = signal(true);
   readonly errorMessage = signal('');
+
+   readonly orderedTasks = computed(() => {
+  return [...this.tasks()].sort((firstTask, secondTask) => {
+    const firstCompleted =
+      firstTask.status === TaskStatus.Completed;
+
+    const secondCompleted =
+      secondTask.status === TaskStatus.Completed;
+
+    // Las tareas completadas siempre van al final.
+    if (firstCompleted !== secondCompleted) {
+      return firstCompleted ? 1 : -1;
+    }
+
+    // Dentro de cada grupo, la fecha más cercana aparece primero.
+    return (
+      new Date(firstTask.dueDate).getTime() -
+      new Date(secondTask.dueDate).getTime()
+    );
+  });
+});
 
   constructor() {
     this.loadTasks();
@@ -81,4 +102,6 @@ export class Dashboard {
 
     return 'Pending';
   }
+
+ 
 }
