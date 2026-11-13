@@ -1,0 +1,200 @@
+:host {
+  display: block;
+}
+
+.task-page {
+  display: grid;
+  gap: 28px;
+}
+
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+
+  h2 {
+    margin: 6px 0 8px;
+    color: var(--ink);
+    font-size: clamp(30px, 4vw, 42px);
+  }
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--racing-red);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+}
+
+.tasks-panel {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.task-list {
+  display: grid;
+}
+
+.task-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: 24px;
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--border);
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.task-info {
+  min-width: 0;
+
+  h3 {
+    margin: 0 0 6px;
+    color: var(--ink);
+    font-size: 17px;
+  }
+
+  p {
+    margin: 0;
+    overflow: hidden;
+    color: var(--muted);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.task-details {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+
+  time {
+    color: var(--muted);
+    font-size: 12px;
+  }
+}
+
+.status-pill {
+  padding: 5px 10px;
+  border-radius: 999px;
+  color: #8a5b00;
+  background: #fff4d6;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status-pill--complete {
+  color: #137344;
+  background: #e5f7ed;
+}
+
+.task-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.primary-button,
+.secondary-button,
+.danger-button,
+.state-message button {
+  border-radius: 9px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.primary-button {
+  border: 0;
+  color: var(--white);
+  background: var(--racing-red);
+}
+
+.secondary-button {
+  border: 1px solid var(--border);
+  color: var(--ink);
+  background: var(--white);
+}
+
+.danger-button {
+  border: 1px solid #f2b8c2;
+  color: var(--racing-red);
+  background: #fff5f6;
+}
+
+.danger-button:disabled {
+  cursor: wait;
+  opacity: 0.6;
+}
+
+.state-message,
+.empty-state {
+  padding: 52px 24px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.state-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.state-message--error {
+  color: var(--racing-red);
+}
+
+.empty-state h3 {
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+
+.empty-state p {
+  margin: 0 0 22px;
+}
+
+@media (max-width: 760px) {
+  .page-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .task-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .task-details {
+    justify-items: start;
+  }
+
+  .task-info p {
+    white-space: normal;
+  }
+
+  .task-actions {
+    width: 100%;
+
+    a,
+    button {
+      flex: 1;
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,157 @@
+:host {
+  display: block;
+}
+
+.task-form-page {
+  display: grid;
+  gap: 28px;
+  max-width: 760px;
+}
+
+.page-header {
+  h2 {
+    margin: 6px 0 8px;
+    color: var(--ink);
+    font-size: clamp(30px, 4vw, 42px);
+  }
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 28px;
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--racing-red);
+  }
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--racing-red);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--muted);
+}
+
+.form-card {
+  display: grid;
+  gap: 22px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.form-field {
+  display: grid;
+  gap: 8px;
+
+  label {
+    color: var(--ink);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: var(--ink);
+    background: var(--polar-white);
+    font: inherit;
+    outline: none;
+
+    &:focus {
+      border-color: var(--glacier-blue);
+      box-shadow: 0 0 0 3px rgba(155, 191, 212, 0.25);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  small {
+    color: var(--racing-red);
+    font-size: 12px;
+  }
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding-top: 8px;
+}
+
+.primary-button,
+.secondary-button {
+  border-radius: 9px;
+  padding: 11px 18px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.primary-button {
+  border: 0;
+  color: var(--white);
+  background: var(--racing-red);
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
+}
+
+.secondary-button {
+  border: 1px solid var(--border);
+  color: var(--ink);
+  background: var(--white);
+}
+
+.state-message {
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .form-card {
+    padding: 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+
+    a,
+    button {
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+    }
+  }
+}

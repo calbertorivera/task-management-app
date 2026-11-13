@@ -1,0 +1,98 @@
+<section class="task-form-page">
+  <header class="page-header">
+    <div>
+      <a class="back-link" routerLink="/tasks">
+        ← Back to tasks
+      </a>
+
+      <p class="eyebrow">
+        {{ isEditMode() ? 'EDIT TASK' : 'NEW TASK' }}
+      </p>
+
+      <h2>
+        {{ isEditMode() ? 'Update task' : 'Create a task' }}
+      </h2>
+
+      <p class="subtitle">
+        Keep the details clear so your next action is obvious.
+      </p>
+    </div>
+  </header>
+
+  @if (isLoading()) {
+  <section class="form-card state-message">
+    Loading task details...
+  </section>
+  } @else {
+  <form class="form-card" [formGroup]="taskForm" (ngSubmit)="submit()">
+    <div class="form-field">
+      <label for="title">Title</label>
+
+      <input id="title" type="text" formControlName="title" placeholder="e.g. Review project requirements" />
+
+      @if (
+      taskForm.controls.title.invalid &&
+      taskForm.controls.title.touched
+      ) {
+      <small>Title is required and must be under 120 characters.</small>
+      }
+    </div>
+
+    <div class="form-field">
+      <label for="description">Description</label>
+
+      <textarea id="description" rows="5" formControlName="description"
+        placeholder="Describe what needs to be completed."></textarea>
+
+      @if (
+      taskForm.controls.description.invalid &&
+      taskForm.controls.description.touched
+      ) {
+      <small>
+        Description is required and must be under 500 characters.
+      </small>
+      }
+    </div>
+
+    <div class="form-grid">
+      <div class="form-field">
+        <label for="dueDate">Due date and time</label>
+        <input id="dueDate" type="datetime-local" step="60" formControlName="dueDate" />
+
+        @if (
+        taskForm.controls.dueDate.invalid &&
+        taskForm.controls.dueDate.touched
+        ) {
+        <small>Due date is required.</small>
+        }
+      </div>
+
+      @if (isEditMode()) {
+      <div class="form-field">
+        <label for="status">Status</label>
+
+        <select id="status" formControlName="status">
+          <option [value]="TaskStatus.Pending">Pending</option>
+          <option [value]="TaskStatus.InProgress">
+            In progress
+          </option>
+          <option [value]="TaskStatus.Completed">
+            Completed
+          </option>
+        </select>
+      </div>
+      }
+    </div>
+
+    <div class="form-actions">
+      <a class="secondary-button" routerLink="/tasks">
+        Cancel
+      </a>
+
+      <button type="submit" class="primary-button" [disabled]="isSaving()">
+        {{ isSaving() ? 'Saving...' : 'Save task' }}
+      </button>
+    </div>
+  </form>
+  }
+</section>
