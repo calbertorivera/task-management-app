@@ -103,13 +103,35 @@
     font-size: 12px;
   }
 }
-
 .form-field input[type='datetime-local'] {
+  -webkit-appearance: none;
+  appearance: none;
+
+  display: block;
   width: 100%;
   min-width: 0;
   max-width: 100%;
-  overflow: hidden;
+  box-sizing: border-box;
+
+  padding-inline: 12px;
   font-size: 16px;
+  text-align: left;
+}
+
+.form-field input[type='datetime-local']::-webkit-date-and-time-value {
+  min-height: 1.2em;
+  margin: 0;
+  text-align: left;
+}
+
+.form-field input[type='datetime-local']::-webkit-datetime-edit,
+.form-field input[type='datetime-local']::-webkit-datetime-edit-fields-wrapper {
+  padding: 0;
+}
+
+.form-field input[type='datetime-local']::-webkit-calendar-picker-indicator {
+  margin: 0;
+  padding: 0;
 }
 
 .form-grid {
