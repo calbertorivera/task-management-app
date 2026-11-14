@@ -69,12 +69,24 @@ namespace TaskManagement.Infrastructure.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
+                    b.Property<int>("EmailVerificationCodeAttemptCount")
+                        .HasColumnType("int");
+
                     b.Property<DateTime?>("EmailVerificationCodeExpiresAtUtc")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("EmailVerificationCodeHash")
                         .HasMaxLength(128)
                         .HasColumnType("nvarchar(128)");
+
+                    b.Property<DateTime?>("EmailVerificationCodeSentAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EmailVerificationSendCount")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("EmailVerificationSendWindowStartedAtUtc")
+                        .HasColumnType("datetime2");
 
                     b.Property<bool>("IsEmailVerified")
                         .HasColumnType("bit");

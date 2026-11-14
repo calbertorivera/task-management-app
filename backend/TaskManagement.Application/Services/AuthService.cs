@@ -12,6 +12,9 @@ namespace TaskManagement.Application.Services;
 public sealed class AuthService : IAuthService
 {
     private const int VerificationCodeExpirationMinutes = 10;
+    private const int VerificationEmailCooldownSeconds = 60;
+    private const int MaxVerificationEmailsPerHour = 5;
+    private const int MaxVerificationCodeAttempts = 5;
 
     private readonly IUserRepository _userRepository;
     private readonly IPasswordHasher<User> _passwordHasher;
@@ -36,17 +39,7 @@ public sealed class AuthService : IAuthService
     {
         var email = NormalizeEmail(request.Email);
 
-        if (string.IsNullOrWhiteSpace(email))
-        {
-            throw new ArgumentException("Email is required.");
-        }
-
-        if (string.IsNullOrWhiteSpace(request.Password) ||
-            request.Password.Length < 8)
-        {
-            throw new ArgumentException(
-                "Password must contain at least 8 characters.");
-        }
+        ValidateRegistration(email, request.Password);
 
         var existingUser = await _userRepository.GetByEmailAsync(
             email,
@@ -54,8 +47,38 @@ public sealed class AuthService : IAuthService
 
         if (existingUser is not null)
         {
-            throw new InvalidOperationException(
-                "A user with this email already exists.");
+            if (existingUser.IsEmailVerified)
+            {
+                throw new InvalidOperationException(
+                    "A user with this email already exists.");
+            }
+
+            var resendTime = DateTime.UtcNow;
+
+            EnsureVerificationEmailCanBeSent(
+                existingUser,
+                resendTime);
+
+            var verificationCode = GenerateVerificationCode();
+
+            existingUser.SetEmailVerificationCode(
+                HashVerificationCode(verificationCode),
+                resendTime.AddMinutes(
+                    VerificationCodeExpirationMinutes));
+
+            await _emailSender.SendVerificationCodeAsync(
+                existingUser.Email,
+                verificationCode,
+                cancellationToken);
+
+            existingUser.MarkVerificationEmailSent(resendTime);
+
+            await _userRepository.SaveChangesAsync(
+                cancellationToken);
+
+            return new RegistrationResponse(
+                existingUser.Email,
+                "Registration successful. Check your email to verify your account.");
         }
 
         var user = new User(email, string.Empty);
@@ -66,22 +89,21 @@ public sealed class AuthService : IAuthService
 
         user.SetPasswordHash(passwordHash);
 
-        var verificationCode = GenerateVerificationCode();
-
-        var verificationCodeHash = HashVerificationCode(
-            verificationCode);
+        var sendTime = DateTime.UtcNow;
+        var newVerificationCode = GenerateVerificationCode();
 
         user.SetEmailVerificationCode(
-            verificationCodeHash,
-            DateTime.UtcNow.AddMinutes(10));
+            HashVerificationCode(newVerificationCode),
+            sendTime.AddMinutes(
+                VerificationCodeExpirationMinutes));
 
-        // Primero intentamos enviar el correo.
         await _emailSender.SendVerificationCodeAsync(
             email,
-            verificationCode,
+            newVerificationCode,
             cancellationToken);
 
-        // Solo se guarda si el correo fue aceptado.
+        user.MarkVerificationEmailSent(sendTime);
+
         await _userRepository.AddAsync(
             user,
             cancellationToken);
@@ -110,10 +132,11 @@ public sealed class AuthService : IAuthService
                 "Invalid email or password.");
         }
 
-        var verificationResult = _passwordHasher.VerifyHashedPassword(
-            user,
-            user.PasswordHash,
-            request.Password);
+        var verificationResult =
+            _passwordHasher.VerifyHashedPassword(
+                user,
+                user.PasswordHash,
+                request.Password);
 
         if (verificationResult == PasswordVerificationResult.Failed)
         {
@@ -157,20 +180,51 @@ public sealed class AuthService : IAuthService
 
         if (user is null ||
             user.IsEmailVerified ||
-            string.IsNullOrWhiteSpace(user.EmailVerificationCodeHash) ||
+            string.IsNullOrWhiteSpace(
+                user.EmailVerificationCodeHash) ||
             !user.EmailVerificationCodeExpiresAtUtc.HasValue ||
-            user.EmailVerificationCodeExpiresAtUtc.Value <= DateTime.UtcNow ||
-            !VerificationCodeMatches(
+            user.EmailVerificationCodeExpiresAtUtc.Value <=
+                DateTime.UtcNow)
+        {
+            throw new InvalidOperationException(
+                "Invalid or expired verification code.");
+        }
+
+        if (user.EmailVerificationCodeAttemptCount >=
+            MaxVerificationCodeAttempts)
+        {
+            user.InvalidateEmailVerificationCode();
+
+            await _userRepository.SaveChangesAsync(
+                cancellationToken);
+
+            throw new InvalidOperationException(
+                "Invalid or expired verification code.");
+        }
+
+        if (!VerificationCodeMatches(
                 code,
                 user.EmailVerificationCodeHash))
         {
+            user.RegisterInvalidVerificationAttempt();
+
+            if (user.EmailVerificationCodeAttemptCount >=
+                MaxVerificationCodeAttempts)
+            {
+                user.InvalidateEmailVerificationCode();
+            }
+
+            await _userRepository.SaveChangesAsync(
+                cancellationToken);
+
             throw new InvalidOperationException(
                 "Invalid or expired verification code.");
         }
 
         user.MarkEmailAsVerified();
 
-        await _userRepository.SaveChangesAsync(cancellationToken);
+        await _userRepository.SaveChangesAsync(
+            cancellationToken);
 
         return new AuthResponse(
             user.Id,
@@ -198,19 +252,88 @@ public sealed class AuthService : IAuthService
             return;
         }
 
+        var sendTime = DateTime.UtcNow;
+
+        EnsureVerificationEmailCanBeSent(
+            user,
+            sendTime);
+
         var verificationCode = GenerateVerificationCode();
 
         user.SetEmailVerificationCode(
             HashVerificationCode(verificationCode),
-            DateTime.UtcNow.AddMinutes(
+            sendTime.AddMinutes(
                 VerificationCodeExpirationMinutes));
-
-        await _userRepository.SaveChangesAsync(cancellationToken);
 
         await _emailSender.SendVerificationCodeAsync(
             user.Email,
             verificationCode,
             cancellationToken);
+
+        user.MarkVerificationEmailSent(sendTime);
+
+        await _userRepository.SaveChangesAsync(
+            cancellationToken);
+    }
+
+    private static void ValidateRegistration(
+        string email,
+        string password)
+    {
+        if (string.IsNullOrWhiteSpace(email))
+        {
+            throw new ArgumentException("Email is required.");
+        }
+
+        if (string.IsNullOrWhiteSpace(password) ||
+            password.Length < 8)
+        {
+            throw new ArgumentException(
+                "Password must contain at least 8 characters.");
+        }
+    }
+
+    private static void EnsureVerificationEmailCanBeSent(
+        User user,
+        DateTime now)
+    {
+        if (user.EmailVerificationCodeSentAtUtc.HasValue)
+        {
+            var cooldownEndsAt =
+                user.EmailVerificationCodeSentAtUtc.Value
+                    .AddSeconds(VerificationEmailCooldownSeconds);
+
+            if (cooldownEndsAt > now)
+            {
+                throw new EmailVerificationRateLimitException(
+                    GetRetryAfterSeconds(cooldownEndsAt, now));
+            }
+        }
+
+        if (user.EmailVerificationSendWindowStartedAtUtc.HasValue &&
+            now <
+                user.EmailVerificationSendWindowStartedAtUtc.Value
+                    .AddHours(1) &&
+            user.EmailVerificationSendCount >=
+                MaxVerificationEmailsPerHour)
+        {
+            var windowEndsAt =
+                user.EmailVerificationSendWindowStartedAtUtc.Value
+                    .AddHours(1);
+
+            throw new EmailVerificationRateLimitException(
+                GetRetryAfterSeconds(windowEndsAt, now));
+        }
+    }
+
+    private static int GetRetryAfterSeconds(
+        DateTime retryAt,
+        DateTime now)
+    {
+        return Math.Max(
+            1,
+            (int)Math.Ceiling(
+                (retryAt - now).TotalSeconds));
     }
 
     private static string NormalizeEmail(string? email)
@@ -222,7 +345,9 @@ public sealed class AuthService : IAuthService
     {
         return RandomNumberGenerator
             .GetInt32(100000, 1000000)
-            .ToString("D6", CultureInfo.InvariantCulture);
+            .ToString(
+                "D6",
+                CultureInfo.InvariantCulture);
     }
 
     private static string HashVerificationCode(string code)
@@ -240,6 +365,7 @@ public sealed class AuthService : IAuthService
         try
         {
             var expectedHash = Convert.FromHexString(storedHash);
+
             var suppliedHash = SHA256.HashData(
                 Encoding.UTF8.GetBytes(code));
 

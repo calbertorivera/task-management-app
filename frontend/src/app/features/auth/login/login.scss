@@ -267,7 +267,6 @@ h1 {
     padding: 0.9rem;
   }
 }
-
 .auth-link {
   margin: 1rem 0 0;
   color: var(--muted);
@@ -279,4 +278,8 @@ h1 {
   color: var(--racing-red);
   font-weight: 700;
   text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
 }

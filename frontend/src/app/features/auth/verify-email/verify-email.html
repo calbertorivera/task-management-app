@@ -26,24 +26,10 @@
       </div>
 
       <form [formGroup]="verifyForm" (ngSubmit)="submit()">
-        <div class="field">
-          <label for="email">Email</label>
-
-          <input
-            id="email"
-            type="email"
-            formControlName="email"
-            autocomplete="email"
-            placeholder="you@example.com"
-          />
-
-          @if (
-            verifyForm.controls.email.invalid &&
-            verifyForm.controls.email.touched
-          ) {
-            <small>Enter a valid email address.</small>
-          }
-        </div>
+        <input
+          type="hidden"
+          formControlName="email"
+        />
 
         <div class="field">
           <label for="code">Verification code</label>
@@ -52,16 +38,20 @@
             id="code"
             type="text"
             inputmode="numeric"
+            autocomplete="one-time-code"
             maxlength="6"
             formControlName="code"
             placeholder="123456"
+            (input)="onCodeInput($event)"
           />
 
           @if (
             verifyForm.controls.code.invalid &&
             verifyForm.controls.code.touched
           ) {
-            <small>Enter the six-digit verification code.</small>
+            <small>
+              Enter the six-digit verification code.
+            </small>
           }
         </div>
 
@@ -76,10 +66,18 @@
         <button
           class="secondary-button"
           type="button"
-          [disabled]="isResending()"
+          [disabled]="
+            isResending() || resendCooldown() > 0
+          "
           (click)="resend()"
         >
-          {{ isResending() ? 'Sending...' : 'Resend code' }}
+          @if (isResending()) {
+            Sending...
+          } @else if (resendCooldown() > 0) {
+            Resend code in {{ formatCooldown() }}
+          } @else {
+            Resend code
+          }
         </button>
 
         <p class="auth-link">

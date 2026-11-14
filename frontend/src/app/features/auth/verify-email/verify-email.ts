@@ -1,12 +1,17 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, inject, signal } from '@angular/core';
+import {
+  Component,
+  OnDestroy,
+  inject,
+  signal,
+} from '@angular/core';
 import {
   NonNullableFormBuilder,
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { finalize } from 'rxjs';
+import { finalize, Subscription, timer } from 'rxjs';
 import { AuthService } from '../../../core/auth/auth.service';
 import { NotificationService } from '../../../core/notifications/notification';
 
@@ -17,7 +22,7 @@ import { NotificationService } from '../../../core/notifications/notification';
   templateUrl: './verify-email.html',
   styleUrl: './verify-email.scss',
 })
-export class VerifyEmailComponent {
+export class VerifyEmailComponent implements OnDestroy {
   private readonly formBuilder = inject(
     NonNullableFormBuilder,
   );
@@ -27,6 +32,8 @@ export class VerifyEmailComponent {
   );
   private readonly router = inject(Router);
   private readonly route = inject(ActivatedRoute);
+
+  private resendCooldownSubscription?: Subscription;
 
   readonly verifyForm = this.formBuilder.group({
     email: [
@@ -44,6 +51,11 @@ export class VerifyEmailComponent {
 
   readonly isSubmitting = signal(false);
   readonly isResending = signal(false);
+  readonly resendCooldown = signal(60);
+
+  constructor() {
+    this.startResendCooldown(60);
+  }
 
   submit(): void {
     if (this.verifyForm.invalid) {
@@ -87,10 +99,31 @@ export class VerifyEmailComponent {
       });
   }
 
+  onCodeInput(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    const numericCode = input.value
+      .replace(/\D/g, '')
+      .slice(0, 6);
+
+    input.value = numericCode;
+
+    this.verifyForm.controls.code.setValue(
+      numericCode,
+      {
+        emitEvent: false,
+      },
+    );
+  }
+
   resend(): void {
     const emailControl = this.verifyForm.controls.email;
 
-    if (emailControl.invalid) {
+    if (
+      emailControl.invalid ||
+      this.resendCooldown() > 0 ||
+      this.isResending()
+    ) {
       emailControl.markAsTouched();
       return;
     }
@@ -108,12 +141,22 @@ export class VerifyEmailComponent {
       )
       .subscribe({
         next: () => {
+          this.startResendCooldown(60);
+
           this.notificationService.showSuccess(
             'A new verification code was sent.',
             'Code sent',
           );
         },
         error: (error: HttpErrorResponse) => {
+          if (error.status === 429) {
+            const retryAfter = Number(
+              error.error?.retryAfterSeconds ?? 60,
+            );
+
+            this.startResendCooldown(retryAfter);
+          }
+
           const message =
             error.error?.message ??
             'Unable to resend the verification code.';
@@ -124,5 +167,43 @@ export class VerifyEmailComponent {
           );
         },
       });
+  }
+
+  formatCooldown(): string {
+    const totalSeconds = this.resendCooldown();
+    const minutes = Math.floor(totalSeconds / 60);
+    const seconds = totalSeconds % 60;
+
+    return `${minutes.toString().padStart(2, '0')}:${
+      seconds.toString().padStart(2, '0')
+    }`;
+  }
+
+  ngOnDestroy(): void {
+    this.resendCooldownSubscription?.unsubscribe();
+  }
+
+  private startResendCooldown(seconds: number): void {
+    this.resendCooldownSubscription?.unsubscribe();
+
+    this.resendCooldown.set(Math.max(0, seconds));
+
+    if (seconds <= 0) {
+      return;
+    }
+
+    this.resendCooldownSubscription = timer(
+      1000,
+      1000,
+    ).subscribe(() => {
+      const remaining = this.resendCooldown() - 1;
+
+      this.resendCooldown.set(Math.max(0, remaining));
+
+      if (remaining <= 0) {
+        this.resendCooldownSubscription?.unsubscribe();
+        this.resendCooldownSubscription = undefined;
+      }
+    });
   }
 }

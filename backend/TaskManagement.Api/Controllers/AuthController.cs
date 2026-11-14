@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TaskManagement.Application.Contracts.Auth;
-using TaskManagement.Application.Interfaces;
 using TaskManagement.Application.Exceptions;
-
+using TaskManagement.Application.Interfaces;
 
 namespace TaskManagement.Api.Controllers;
 
@@ -21,8 +20,8 @@ public sealed class AuthController : ControllerBase
     [AllowAnonymous]
     [HttpPost("register")]
     public async Task<ActionResult<RegistrationResponse>> Register(
-    RegisterRequest request,
-    CancellationToken cancellationToken)
+        RegisterRequest request,
+        CancellationToken cancellationToken)
     {
         try
         {
@@ -42,6 +41,10 @@ public sealed class AuthController : ControllerBase
                 {
                     message = exception.Message
                 });
+        }
+        catch (EmailVerificationRateLimitException exception)
+        {
+            return TooManyRequests(exception);
         }
         catch (ArgumentException exception)
         {
@@ -77,23 +80,32 @@ public sealed class AuthController : ControllerBase
         {
             return StatusCode(
                 StatusCodes.Status403Forbidden,
-                new { message = exception.Message });
+                new
+                {
+                    message = exception.Message
+                });
         }
         catch (ArgumentException exception)
         {
-            return BadRequest(new { message = exception.Message });
+            return BadRequest(new
+            {
+                message = exception.Message
+            });
         }
         catch (UnauthorizedAccessException exception)
         {
-            return Unauthorized(new { message = exception.Message });
+            return Unauthorized(new
+            {
+                message = exception.Message
+            });
         }
     }
 
     [AllowAnonymous]
     [HttpPost("verify-email")]
     public async Task<ActionResult<AuthResponse>> VerifyEmail(
-    VerifyEmailRequest request,
-    CancellationToken cancellationToken)
+        VerifyEmailRequest request,
+        CancellationToken cancellationToken)
     {
         try
         {
@@ -105,11 +117,17 @@ public sealed class AuthController : ControllerBase
         }
         catch (ArgumentException exception)
         {
-            return BadRequest(new { message = exception.Message });
+            return BadRequest(new
+            {
+                message = exception.Message
+            });
         }
         catch (InvalidOperationException exception)
         {
-            return BadRequest(new { message = exception.Message });
+            return BadRequest(new
+            {
+                message = exception.Message
+            });
         }
     }
 
@@ -131,9 +149,43 @@ public sealed class AuthController : ControllerBase
                     "If the account exists and is not verified, a new code has been sent."
             });
         }
+        catch (EmailDeliveryException exception)
+        {
+            Response.Headers.RetryAfter = "60";
+
+            return StatusCode(
+                StatusCodes.Status503ServiceUnavailable,
+                new
+                {
+                    message = exception.Message
+                });
+        }
+        catch (EmailVerificationRateLimitException exception)
+        {
+            return TooManyRequests(exception);
+        }
         catch (ArgumentException exception)
         {
-            return BadRequest(new { message = exception.Message });
+            return BadRequest(new
+            {
+                message = exception.Message
+            });
         }
+    }
+
+    private ObjectResult TooManyRequests(
+        EmailVerificationRateLimitException exception)
+    {
+        Response.Headers.RetryAfter =
+            exception.RetryAfterSeconds.ToString();
+
+        return StatusCode(
+            StatusCodes.Status429TooManyRequests,
+            new
+            {
+                message = exception.Message,
+                retryAfterSeconds =
+                    exception.RetryAfterSeconds
+            });
     }
 }
