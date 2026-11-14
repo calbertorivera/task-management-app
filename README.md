@@ -513,7 +513,38 @@ The current implementation satisfies the core requirements of the exercise. The 
 | Overdue tasks | Add an `Overdue` visual state derived from the due date and the current UTC time. Add filters and indicators in the dashboard and task list. | Makes late tasks immediately visible. |
 | Change password | Add an authenticated endpoint that validates the current password and securely hashes the new password. | Improves account self-service and security. |
 | Calendar reminders | Allow users to create a calendar reminder when creating or editing a task. This could be implemented through an ICS file or a calendar provider integration such as Microsoft Graph. | Connects task management with the user's existing calendar workflow. |
+| Social login | Support authentication with Google using OAuth 2.0/OpenID Connect and Facebook Login. | Reduces registration friction and improves user convenience. |
+| Account profile | Allow authenticated users to view and update their profile information. | Gives users control over their account data. |
+| Security settings | Add password management, password change, email update, active-session management, and optional multi-factor authentication. | Improves account security and self-service capabilities. |
+| Application settings | Add user preferences such as timezone, notification preferences, date format, and email notification settings. | Provides a more personalized experience. |
 | Rich notifications | Extend notifications beyond email with in-app alerts and, potentially, push notifications. | Improves visibility of important task events. |
+
+### Authentication and account management roadmap
+
+Future social authentication should be implemented using standards-based identity providers:
+
+- Google OAuth 2.0/OpenID Connect.
+- Facebook Login.
+- Server-side validation of provider tokens.
+- Secure redirect URI configuration.
+- Account linking with duplicate-account protection.
+- Explicit consent before linking an external identity to an existing account.
+
+The account area could include:
+
+- Profile information.
+- Email address management.
+- Password change.
+- Password reset flow.
+- Active session management.
+- Multi-factor authentication.
+- Notification preferences.
+- Timezone and date-format preferences.
+- Account deletion.
+
+Password changes should require the current password unless the user is completing a verified password-reset flow. Email changes should require verification of the new address.
+
+Because the current application uses stateless JWT authentication, complete session revocation would require a future refresh-token strategy or a server-side token-version mechanism.
 
 ### Azure Function notification flow
 
