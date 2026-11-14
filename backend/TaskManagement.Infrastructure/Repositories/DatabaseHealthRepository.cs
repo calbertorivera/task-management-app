@@ -11,6 +11,14 @@ public sealed class DatabaseHealthRepository(
     public async Task CheckAsync(
         CancellationToken cancellationToken = default)
     {
+        if (!dbContext.Database.IsRelational())
+        {
+            await dbContext.Database.CanConnectAsync(
+                cancellationToken);
+
+            return;
+        }
+
         dbContext.Database.SetCommandTimeout(180);
 
         var executionStrategy =

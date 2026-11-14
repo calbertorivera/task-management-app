@@ -35,8 +35,11 @@ public sealed class BearerSecuritySchemeTransformer(
                 }
             };
 
-        foreach (var operation in document.Paths.Values
-                     .SelectMany(path => path.Operations))
+        var operations = document.Paths?.Values
+     .SelectMany(path => path.Operations ?? [])
+     ?? [];
+
+        foreach (var operation in operations)
         {
             operation.Value.Security ??= [];
 

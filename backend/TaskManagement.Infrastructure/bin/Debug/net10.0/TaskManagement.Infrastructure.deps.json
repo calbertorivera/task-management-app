@@ -13,6 +13,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "10.0.0",
           "Microsoft.Extensions.Configuration.Binder": "10.0.15",
           "System.IdentityModel.Tokens.Jwt": "8.14.0",
+          "System.Security.Cryptography.Pkcs": "9.0.21",
+          "System.Security.Cryptography.Xml": "9.0.21",
           "TaskManagement.Application": "1.0.0",
           "TaskManagement.Domain": "1.0.0"
         },
@@ -143,9 +145,9 @@
           "System.Diagnostics.EventLog": "9.0.4",
           "System.Formats.Nrbf": "9.0.0",
           "System.Resources.Extensions": "9.0.0",
-          "System.Security.Cryptography.Pkcs": "9.0.4",
+          "System.Security.Cryptography.Pkcs": "9.0.21",
           "System.Security.Cryptography.ProtectedData": "9.0.4",
-          "System.Security.Cryptography.Xml": "9.0.0"
+          "System.Security.Cryptography.Xml": "9.0.21"
         },
         "runtime": {
           "lib/net9.0/Microsoft.Build.Tasks.Core.dll": {
@@ -457,9 +459,9 @@
           "System.Configuration.ConfigurationManager": "9.0.4",
           "System.Diagnostics.EventLog": "9.0.4",
           "System.Resources.Extensions": "9.0.0",
-          "System.Security.Cryptography.Pkcs": "9.0.4",
+          "System.Security.Cryptography.Pkcs": "9.0.21",
           "System.Security.Cryptography.ProtectedData": "9.0.4",
-          "System.Security.Cryptography.Xml": "9.0.0",
+          "System.Security.Cryptography.Xml": "9.0.21",
           "System.Security.Permissions": "9.0.0",
           "System.Windows.Extensions": "9.0.0"
         },
@@ -541,7 +543,7 @@
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "7.7.1",
           "Microsoft.SqlServer.Server": "1.0.0",
           "System.Configuration.ConfigurationManager": "9.0.4",
-          "System.Security.Cryptography.Pkcs": "9.0.4"
+          "System.Security.Cryptography.Pkcs": "9.0.21"
         },
         "runtime": {
           "lib/net9.0/Microsoft.Data.SqlClient.dll": {
@@ -1192,11 +1194,11 @@
           }
         }
       },
-      "System.Security.Cryptography.Pkcs/9.0.4": {
+      "System.Security.Cryptography.Pkcs/9.0.21": {
         "runtime": {
           "lib/net9.0/System.Security.Cryptography.Pkcs.dll": {
             "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.425.16305",
+            "fileVersion": "9.0.2126.50404",
             "localPath": "System.Security.Cryptography.Pkcs.dll"
           }
         },
@@ -1205,7 +1207,7 @@
             "rid": "win",
             "assetType": "runtime",
             "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.425.16305",
+            "fileVersion": "9.0.2126.50404",
             "localPath": "runtimes/win/lib/net9.0/System.Security.Cryptography.Pkcs.dll"
           }
         }
@@ -1219,14 +1221,14 @@
           }
         }
       },
-      "System.Security.Cryptography.Xml/9.0.0": {
+      "System.Security.Cryptography.Xml/9.0.21": {
         "dependencies": {
-          "System.Security.Cryptography.Pkcs": "9.0.4"
+          "System.Security.Cryptography.Pkcs": "9.0.21"
         },
         "runtime": {
           "lib/net9.0/System.Security.Cryptography.Xml.dll": {
             "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.24.52809",
+            "fileVersion": "9.0.2126.50404",
             "localPath": "System.Security.Cryptography.Xml.dll"
           }
         }
@@ -1737,12 +1739,12 @@
       "path": "system.resources.extensions/9.0.0",
       "hashPath": "system.resources.extensions.9.0.0.nupkg.sha512"
     },
-    "System.Security.Cryptography.Pkcs/9.0.4": {
+    "System.Security.Cryptography.Pkcs/9.0.21": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-cUFTcMlz/Qw9s90b2wnWSCvHdjv51Bau9FQqhsr4TlwSe1OX+7SoXUqphis5G74MLOvMOCghxPPlEqOdCrVVGA==",
-      "path": "system.security.cryptography.pkcs/9.0.4",
-      "hashPath": "system.security.cryptography.pkcs.9.0.4.nupkg.sha512"
+      "sha512": "sha512-KD+oHoYIxwNCajjVe58WVwq9cRpum+Pg3tRveDRtkcaw6w3oc7sNBoMRtb5P5OehI3bgv1ucMpgjf8lpj5J96A==",
+      "path": "system.security.cryptography.pkcs/9.0.21",
+      "hashPath": "system.security.cryptography.pkcs.9.0.21.nupkg.sha512"
     },
     "System.Security.Cryptography.ProtectedData/9.0.4": {
       "type": "package",
@@ -1751,12 +1753,12 @@
       "path": "system.security.cryptography.protecteddata/9.0.4",
       "hashPath": "system.security.cryptography.protecteddata.9.0.4.nupkg.sha512"
     },
-    "System.Security.Cryptography.Xml/9.0.0": {
+    "System.Security.Cryptography.Xml/9.0.21": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-GQZn5wFd+pyOfwWaCbqxG7trQ5ox01oR8kYgWflgtux4HiUNihGEgG2TktRWyH+9bw7NoEju1D41H/upwQeFQw==",
-      "path": "system.security.cryptography.xml/9.0.0",
-      "hashPath": "system.security.cryptography.xml.9.0.0.nupkg.sha512"
+      "sha512": "sha512-6XZ42JXU1q4uzkQvZ0sV9ytXD09IGlk1OdJLuuvHfECdhukURombVrnYSKLUOR1tuY2u7ZRJuZfj2Da+2KpF+g==",
+      "path": "system.security.cryptography.xml/9.0.21",
+      "hashPath": "system.security.cryptography.xml.9.0.21.nupkg.sha512"
     },
     "System.Security.Permissions/9.0.0": {
       "type": "package",
