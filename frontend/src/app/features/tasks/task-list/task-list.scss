@@ -88,17 +88,32 @@
 }
 
 .status-pill {
+  display: inline-flex;
+  align-items: center;
   padding: 5px 10px;
   border-radius: 999px;
-  color: #8a5b00;
-  background: #fff4d6;
   font-size: 12px;
   font-weight: 700;
 }
 
+.status-pill--pending {
+  color: var(--status-pending);
+  background: var(--status-pending-soft);
+}
+
+.status-pill--in-progress {
+  color: var(--status-in-progress);
+  background: var(--status-in-progress-soft);
+}
+
 .status-pill--complete {
-  color: #137344;
-  background: #e5f7ed;
+  color: var(--status-completed);
+  background: var(--status-completed-soft);
+}
+
+.status-pill--overdue {
+  color: var(--status-overdue);
+  background: var(--status-overdue-soft);
 }
 
 .task-actions {

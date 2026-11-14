@@ -10,6 +10,14 @@
   --border: #d8e3eb;
   --white: #ffffff;
   --shadow-soft: 0 18px 45px rgba(38, 55, 74, 0.14);
+   --status-pending: #64748b;
+  --status-pending-soft: #e2e8f0;
+  --status-in-progress: #2563eb;
+  --status-in-progress-soft: #dbeafe;
+  --status-completed: #16a34a;
+  --status-completed-soft: #dcfce7;
+  --status-overdue: #dc2626;
+  --status-overdue-soft: #fee2e2;
 }
 
 * {

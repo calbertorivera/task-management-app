@@ -120,10 +120,10 @@ describe('RegisterComponent', () => {
         );
 
         component.registerForm.setValue({
-  email: 'user@example.com',
-  password: 'Password123!',
-  confirmPassword: 'Password123!',
-});
+            email: 'user@example.com',
+            password: 'Password123!',
+            confirmPassword: 'Password123!',
+        });
 
         component.submit();
 

@@ -15,76 +15,65 @@
 
   <section class="tasks-panel">
     @if (isLoading()) {
-      <div class="state-message">Loading tasks...</div>
+    <div class="state-message">Loading tasks...</div>
     } @else if (errorMessage()) {
-      <div class="state-message state-message--error">
-        <span>{{ errorMessage() }}</span>
-        <button type="button" (click)="loadTasks()">Try again</button>
-      </div>
+    <div class="state-message state-message--error">
+      <span>{{ errorMessage() }}</span>
+      <button type="button" (click)="loadTasks()">Try again</button>
+    </div>
     } @else if (tasks().length === 0) {
-      <div class="empty-state">
-        <h3>No tasks yet</h3>
-        <p>Create your first task to get started.</p>
-        <a class="primary-button" routerLink="/tasks/new">
-          Create task
-        </a>
-      </div>
+    <div class="empty-state">
+      <h3>No tasks yet</h3>
+      <p>Create your first task to get started.</p>
+      <a class="primary-button" routerLink="/tasks/new">
+        Create task
+      </a>
+    </div>
     } @else {
-      <div class="task-list">
-        @for (task of tasks(); track task.id) {
-          <article class="task-row">
-            <div class="task-info">
-              <h3>{{ task.title }}</h3>
-              <p>{{ task.description }}</p>
-            </div>
+    <div class="task-list">
+      @for (task of tasks(); track task.id) {
+      <article class="task-row">
+        <div class="task-info">
+          <h3>{{ task.title }}</h3>
+          <p>{{ task.description }}</p>
+        </div>
 
-            <div class="task-details">
-              <span
-                class="status-pill"
-                [class.status-pill--complete]="isCompleted(task.status)"
-              >
-                {{ statusLabel(task.status) }}
-              </span>
+        <div class="task-details">
+          <span class="status-pill" [class.status-pill--pending]="
+    task.status === TaskStatus.Pending
+  " [class.status-pill--in-progress]="
+    task.status === TaskStatus.InProgress
+  " [class.status-pill--complete]="
+    task.status === TaskStatus.Completed
+  ">
+            {{ statusLabel(task.status) }}
+          </span>
 
-              <time [attr.datetime]="task.dueDate">
-                Due {{ task.dueDate | date: 'MMM d, y' }}
-              </time>
-            </div>
+          <time [attr.datetime]="task.dueDate">
+            Due {{ task.dueDate | date: 'MMM d, y' }}
+          </time>
+        </div>
 
-            <div class="task-actions">
-              <a
-                class="secondary-button"
-                [routerLink]="['/tasks', task.id, 'edit']"
-              >
-                Edit
-              </a>
+        <div class="task-actions">
+          <a class="secondary-button" [routerLink]="['/tasks', task.id, 'edit']">
+            Edit
+          </a>
 
-              <button
-                type="button"
-                class="danger-button"
-                [disabled]="deletingTaskId() === task.id"
-                (click)="requestDelete(task)"
-              >
-                {{
-                  deletingTaskId() === task.id
-                    ? 'Deleting...'
-                    : 'Delete'
-                }}
-              </button>
-            </div>
-          </article>
-        }
-      </div>
+          <button type="button" class="danger-button" [disabled]="deletingTaskId() === task.id"
+            (click)="requestDelete(task)">
+            {{
+            deletingTaskId() === task.id
+            ? 'Deleting...'
+            : 'Delete'
+            }}
+          </button>
+        </div>
+      </article>
+      }
+    </div>
     }
   </section>
 </section>
 
-<app-confirm-dialog
-  [isOpen]="taskToDelete() !== null"
-  title="Delete task?"
-  [message]="deleteMessage"
-  confirmLabel="Delete"
-  cancelLabel="Cancel"
-  (confirmed)="confirmDelete()"
-  (cancelled)="cancelDelete()"
-/>
+<app-confirm-dialog [isOpen]="taskToDelete() !== null" title="Delete task?" [message]="deleteMessage"
+  confirmLabel="Delete" cancelLabel="Cancel" (confirmed)="confirmDelete()" (cancelled)="cancelDelete()" />

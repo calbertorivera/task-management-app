@@ -42,38 +42,41 @@
     </div>
 
     @if (isLoading()) {
-      <div class="state-message">Loading your tasks...</div>
+    <div class="state-message">Loading your tasks...</div>
     } @else if (errorMessage()) {
-      <div class="state-message state-message--error">
-        <span>{{ errorMessage() }}</span>
-        <button type="button" (click)="loadTasks()">Try again</button>
-      </div>
+    <div class="state-message state-message--error">
+      <span>{{ errorMessage() }}</span>
+      <button type="button" (click)="loadTasks()">Try again</button>
+    </div>
     } @else if (tasks().length === 0) {
-      <div class="state-message">You do not have any tasks yet.</div>
+    <div class="state-message">You do not have any tasks yet.</div>
     } @else {
-      <div class="task-list">
-        @for (task of orderedTasks(); track task.id) {
-          <article class="task-row">
-            <div class="task-content">
-              <h4>{{ task.title }}</h4>
-              <p>{{ task.description }}</p>
-            </div>
+    <div class="task-list">
+      @for (task of orderedTasks(); track task.id) {
+      <article class="task-row">
+        <div class="task-content">
+          <h4>{{ task.title }}</h4>
+          <p>{{ task.description }}</p>
+        </div>
 
-            <div class="task-meta">
-              <span
-                class="status-pill"
-                [class.status-pill--complete]="isCompleted(task)"
-              >
-                {{ statusLabel(task.status) }}
-              </span>
+        <div class="task-meta">
+          <span class="status-pill" [class.status-pill--pending]="
+    task.status === TaskStatus.Pending
+  " [class.status-pill--in-progress]="
+    task.status === TaskStatus.InProgress
+  " [class.status-pill--complete]="
+    task.status === TaskStatus.Completed
+  ">
+            {{ statusLabel(task.status) }}
+          </span>
 
-              <time [attr.datetime]="task.dueDate">
-                Due {{ task.dueDate | date: 'MMM d, y · HH:mm' }}
-              </time>
-            </div>
-          </article>
-        }
-      </div>
+          <time [attr.datetime]="task.dueDate">
+            Due {{ task.dueDate | date: 'MMM d, y · HH:mm' }}
+          </time>
+        </div>
+      </article>
+      }
+    </div>
     }
   </section>
 </section>

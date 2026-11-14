@@ -30,6 +30,7 @@ export class TaskList {
   readonly errorMessage = signal('');
   readonly deletingTaskId = signal<string | null>(null);
   readonly taskToDelete = signal<Task | null>(null);
+  readonly TaskStatus = TaskStatus;
 
   constructor() {
     this.loadTasks();

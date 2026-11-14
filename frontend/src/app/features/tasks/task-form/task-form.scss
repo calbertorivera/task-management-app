@@ -73,6 +73,8 @@
     background: var(--polar-white);
     font: inherit;
     outline: none;
+    min-width: 0;
+    max-width: 100%;
 
     &:focus {
       border-color: var(--glacier-blue);
@@ -154,4 +156,17 @@
       text-align: center;
     }
   }
+
+  .form-field input[type='datetime-local'] {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    font-size: 0.95rem;
+  }
+}
+
+.form-card,
+.form-grid,
+.form-field {
+  min-width: 0;
 }

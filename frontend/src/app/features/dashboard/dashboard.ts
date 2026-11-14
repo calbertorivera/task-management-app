@@ -27,6 +27,7 @@ export class Dashboard {
   readonly tasks = signal<ReadonlyArray<Task>>([]);  
   readonly isLoading = signal(true);
   readonly errorMessage = signal('');
+  readonly TaskStatus = TaskStatus;
 
    readonly orderedTasks = computed(() => {
   return [...this.tasks()].sort((firstTask, secondTask) => {
