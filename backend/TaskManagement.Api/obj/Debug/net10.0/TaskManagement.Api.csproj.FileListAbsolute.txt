@@ -233,4 +233,5 @@ C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backe
 C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\obj\Debug\net10.0\TaskManagement.Api.genruntimeconfig.cache
 C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\obj\Debug\net10.0\ref\TaskManagement.Api.dll
 C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\bin\Debug\net10.0\Azure.Communication.Email.dll
-C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\obj\Debug\net10.0\compressed\eu8j03a5kb-{0}-1jlfenqgxd-1jlfenqgxd.gz
+C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\obj\Debug\net10.0\staticwebassets.upToDateCheck.txt
+C:\Users\CAlbe\OneDrive\Documentos\task-management-app\task-management-app\backend\TaskManagement.Api\obj\Debug\net10.0\compressed\eu8j03a5kb-{0}-arj96zr281-arj96zr281.gz
