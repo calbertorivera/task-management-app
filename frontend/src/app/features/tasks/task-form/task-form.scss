@@ -1,14 +1,20 @@
 :host {
   display: block;
+  width: 100%;
+  min-width: 0;
 }
 
 .task-form-page {
   display: grid;
-  gap: 28px;
+  width: 100%;
+  min-width: 0;
   max-width: 760px;
+  gap: 28px;
 }
 
 .page-header {
+  min-width: 0;
+
   h2 {
     margin: 6px 0 8px;
     color: var(--ink);
@@ -43,7 +49,10 @@
 
 .form-card {
   display: grid;
+  width: 100%;
+  min-width: 0;
   gap: 22px;
+  overflow: hidden;
   padding: 28px;
   border: 1px solid var(--border);
   border-radius: 18px;
@@ -53,6 +62,8 @@
 
 .form-field {
   display: grid;
+  width: 100%;
+  min-width: 0;
   gap: 8px;
 
   label {
@@ -64,7 +75,10 @@
   input,
   textarea,
   select {
+    display: block;
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
     box-sizing: border-box;
     border: 1px solid var(--border);
     border-radius: 10px;
@@ -73,8 +87,6 @@
     background: var(--polar-white);
     font: inherit;
     outline: none;
-    min-width: 0;
-    max-width: 100%;
 
     &:focus {
       border-color: var(--glacier-blue);
@@ -92,9 +104,18 @@
   }
 }
 
+.form-field input[type='datetime-local'] {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 16px;
+}
+
 .form-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  min-width: 0;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -139,11 +160,19 @@
 
 @media (max-width: 600px) {
   .form-card {
-    padding: 20px;
+    padding: 16px;
   }
 
   .form-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .form-field input[type='datetime-local'] {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    padding-inline: 8px;
+    font-size: 16px;
   }
 
   .form-actions {
@@ -156,17 +185,4 @@
       text-align: center;
     }
   }
-
-  .form-field input[type='datetime-local'] {
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    font-size: 0.95rem;
-  }
-}
-
-.form-card,
-.form-grid,
-.form-field {
-  min-width: 0;
 }
